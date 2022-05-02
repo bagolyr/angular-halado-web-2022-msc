@@ -18,12 +18,12 @@ import {
   styleUrls: ['./wagon-list.component.css'],
 })
 export class WagonListComponent implements OnInit {
-  public wagons = [];
+  //public wagons = [];
 
   constructor(private wagonService: WagonService) {}
 
   wagons$: Observable<any>;
-  //wagons;
+  wagons;
 
   ngOnInit() {
     this.wagons$ = this.wagonService.getWagons();

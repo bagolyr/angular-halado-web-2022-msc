@@ -28,5 +28,6 @@ import { WagonService } from './wagon.service';
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],
+  providers: [InMemoryEventService, WagonService],
 })
 export class AppModule {}

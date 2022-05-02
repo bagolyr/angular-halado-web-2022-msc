@@ -11,7 +11,7 @@ const WAGON_URL = 'api/wagons';
 
 @Injectable()
 export class WagonService {
-  private _url: string = './assets/wagons.json';
+  private _url: string = '/assets/wagons.json';
 
   constructor(private requestService: HttpClient) {}
 
