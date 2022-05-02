@@ -1,5 +1,14 @@
 <h2>Wagons</h2>
 
-<div *ngFor="let wagon of wagons">
-  <h3>{{ wagon.identifier }}</h3>
-</div>
+<table>
+  <th style="width: 60px;">Identifier</th>
+  <th style="width: 150px;">Track number</th>
+  <th style="width: 60px;">SiteName</th>
+</table>
+<table *ngFor="let wagon of wagons">
+  <tr>
+    <td style="width: 60px;">{{ wagon.identifier }}</td>
+    <td style="width: 150px;">{{ wagon.track_number }}</td>
+    <td style="width: 60px;">{{ wagon.siteName }}</td>
+  </tr>
+</table>
