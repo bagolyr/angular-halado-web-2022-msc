@@ -1,4 +1,4 @@
-import { SiteTable } from './site_store';
+import { SiteTable } from './site_store.data';
 
 export interface Wagon {
   id: number;
@@ -11,7 +11,7 @@ export interface Wagon {
 }
 
 export class WagonTable {
-  public static authors: Wagon[] = [
+  public static wagons: Wagon[] = [
     {
       id: 1,
       identifier: 'Bhv',
