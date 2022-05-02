@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-/*import { EventTable } from './event-list/events';*/
-import { SiteTable } from './data/site-store.data';
-import { WagonTable } from './data/wagon-store.data';
+import { SiteTable } from './data/sites';
+import { WagonTable } from './data/wagons';
 
 @Injectable()
 export class InMemoryEventService implements InMemoryDbService {
@@ -10,7 +9,6 @@ export class InMemoryEventService implements InMemoryDbService {
 
   createDb() {
     const db = {
-      /*events: EventTable.events,*/
       sites: SiteTable.sites,
       wagons: WagonTable.wagons,
     };

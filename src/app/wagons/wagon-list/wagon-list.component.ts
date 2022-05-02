@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WagonTable } from '../../data/wagon-store.data';
+import { WagonTable } from '../../data/wagons';
 import { WagonService } from '../../wagon.service';
 import { Observable, Observer, fromEvent, of } from 'rxjs';
 import {
@@ -18,13 +18,15 @@ import {
   styleUrls: ['./wagon-list.component.css'],
 })
 export class WagonListComponent implements OnInit {
+  public wagons = [];
+
   constructor(private wagonService: WagonService) {}
 
   wagons$: Observable<any>;
-  wagons;
+  //wagons;
 
   ngOnInit() {
-    this.wagons$ = this.wagonService.getEvents();
+    this.wagons$ = this.wagonService.getWagons();
     this.wagons$.subscribe((result) => {
       this.wagons = result;
     });
