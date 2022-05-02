@@ -8,10 +8,11 @@ export interface Wagon {
   owner: string;
   siteID: number;
   is_deleted: boolean;
+  siteName?: string;
 }
 
 export class WagonTable {
-  public static wagons: Wagon[] = [
+  public static _wagons: Wagon[] = [
     {
       id: 1,
       identifier: 'Bhv',
@@ -40,4 +41,10 @@ export class WagonTable {
       is_deleted: false,
     },
   ];
+
+  public static wagons: Wagon[] = WagonTable._wagons.map((wagon) => {
+    const site = SiteTable.sites.find((a) => a.id === wagon.siteID);
+    wagon.siteName = site.name;
+    return wagon;
+  });
 }
