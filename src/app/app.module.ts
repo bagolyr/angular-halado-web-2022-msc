@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -16,6 +17,7 @@ import { WagonService } from './wagon.service';
 @NgModule({
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
     environment.isMockEnabled

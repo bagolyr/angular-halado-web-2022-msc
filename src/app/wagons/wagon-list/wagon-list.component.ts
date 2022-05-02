@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WagonTable } from '../../data/wagons';
 import { WagonService } from '../../wagon.service';
 import { Observable, Observer, fromEvent, of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 import {
   mergeMap,
   catchError,
