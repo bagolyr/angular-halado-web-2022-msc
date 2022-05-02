@@ -28,7 +28,7 @@ import { WagonService } from './wagon.service';
       { path: 'wagons', component: WagonListComponent },
     ]),
   ],
-  declarations: [AppComponent, HelloComponent],
+  declarations: [AppComponent, HelloComponent, WagonListComponent],
   bootstrap: [AppComponent],
   providers: [InMemoryEventService, WagonService],
 })
