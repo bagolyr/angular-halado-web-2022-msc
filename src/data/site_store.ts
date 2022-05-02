@@ -3,7 +3,7 @@ export interface Site {
   name: string;
   owner: string;
   address: string;
-  code: number;
+  code: string;
 }
 
 export class SiteTable {
@@ -13,14 +13,14 @@ export class SiteTable {
       name: 'Name1',
       owner: 'SiteOwner1',
       address: 'Celldomolk',
-      code: 02170,
+      code: '02170',
     },
     {
       id: 2,
       name: 'Name2',
       owner: 'SiteOwner1',
       address: 'Szombathely',
-      code: 02171,
+      code: '02171',
     },
   ];
 }

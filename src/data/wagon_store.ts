@@ -7,6 +7,7 @@ export interface Wagon {
   track_number: string;
   owner: string;
   siteID: number;
+  is_deleted: boolean;
 }
 
 export class WagonTable {
@@ -18,6 +19,7 @@ export class WagonTable {
       track_number: '50 55 20-05 555-7',
       owner: 'WagonOwner1',
       siteID: 1,
+      is_deleted: false,
     },
     {
       id: 2,
@@ -26,6 +28,7 @@ export class WagonTable {
       track_number: '50 55 20-05 555-8',
       owner: 'WagonOwner2',
       siteID: 1,
+      is_deleted: false,
     },
     {
       id: 3,
@@ -34,6 +37,7 @@ export class WagonTable {
       track_number: '50 55 20-05 555-9',
       owner: 'WagonOwner3',
       siteID: 2,
+      is_deleted: false,
     },
   ];
 }
