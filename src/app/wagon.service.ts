@@ -15,31 +15,31 @@ export class WagonService {
 
   constructor(private requestService: HttpClient) {}
 
-  /*getWagons(): Observable<any> {
+  getWagons(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
     };
     return this.requestService.get<any>(WAGON_URL, httpOptions);
+  }
+  /*getWagons(): Observable<Wagon[]> {
+    return this.requestService.get<Wagon[]>(WAGON_URL);
   }*/
-  getWagons(): Observable<Wagon[]> {
-    return this.requestService.get<Wagon[]>(this._url);
+
+  getWagon(wagonId): Observable<any> {
+    return this.requestService.get(`${WAGON_URL}/${wagonId}`);
   }
 
-  getEvent(eventId): Observable<any> {
-    return this.requestService.get(`${WAGON_URL}/${eventId}`);
+  createWagon(wagon: any): Observable<any> {
+    return this.requestService.post(`${WAGON_URL}/`, wagon);
   }
 
-  createEvent(event: any): Observable<any> {
-    return this.requestService.post(`${WAGON_URL}/`, event);
+  updateWagon(wagon: any): Observable<any> {
+    return this.requestService.put(`${WAGON_URL}/`, wagon);
   }
 
-  updateEvent(event: any): Observable<any> {
-    return this.requestService.put(`${WAGON_URL}/`, event);
-  }
-
-  deleteEvent(wagonId: number): Observable<any> {
+  deleteWagon(wagonId: number): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -49,10 +49,10 @@ export class WagonService {
     return this.requestService.delete(url, httpOptions);
   }
 
-  eventNameExists(name: string): Observable<boolean> {
+  wagonNameExists(name: string): Observable<boolean> {
     return this.getWagons().pipe(
-      map((events) => {
-        return events.findIndex((wagon) => wagon.identifier === name) !== -1;
+      map((wagons) => {
+        return wagons.findIndex((wagon) => wagon.identifier === name) !== -1;
       })
     );
   }
