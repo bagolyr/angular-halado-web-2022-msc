@@ -8,3 +8,8 @@ td,
 th {
   width: 110px;
 }
+
+#edit,
+#delete {
+  width: 52px;
+}
