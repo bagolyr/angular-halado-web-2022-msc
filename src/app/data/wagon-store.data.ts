@@ -1,4 +1,4 @@
-import { SiteTable } from './site_store.data';
+import { SiteTable } from './site-store.data';
 
 export interface Wagon {
   id: number;
