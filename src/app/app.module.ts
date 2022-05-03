@@ -27,6 +27,7 @@ import { WagonUpdateComponent } from './wagons/wagon-update/wagon-update.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule,
     environment.isMockEnabled
       ? HttpClientInMemoryWebApiModule.forRoot(InMemoryEventService)
       : [],
