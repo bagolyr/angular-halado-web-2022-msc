@@ -32,7 +32,18 @@ export class WagonService {
   }
 
   createWagon(wagon: any): Observable<any> {
+    console.log(wagon);
     return this.requestService.post(`${WAGON_URL}/`, wagon);
+  }
+
+  createWagonNew(wagon: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    const url = `${WAGON_URL}/${wagon}`;
+    return this.requestService.post(url, httpOptions);
   }
 
   updateWagon(wagon: any): Observable<any> {
@@ -40,6 +51,7 @@ export class WagonService {
   }
 
   deleteWagon(wagonId: number): Observable<any> {
+    console.log('Deleted wagon: ' + wagonId);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
