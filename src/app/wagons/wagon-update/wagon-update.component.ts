@@ -15,6 +15,7 @@ import {
   tap,
 } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
+import { Wagon } from '../../data/wagons';
 
 @Component({
   selector: 'app-wagon-update',
@@ -23,20 +24,29 @@ import { switchMap } from 'rxjs/operators';
 })
 export class WagonUpdateComponent implements OnInit {
   wagonForm: FormGroup;
-  wagonService: WagonService;
+
+  loadedWagon: Wagon;
+  wagons$: Observable<any>;
+  wagons;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private wagonService: WagonService
   ) {}
 
   //constructor(private router: Router) {}
 
   ngOnInit() {
-    console.log(this.router.url);
-    //this.wagonService.getWagon();
+    this.wagons$ = this.wagonService.getWagons();
+    this.wagons$.subscribe((result) => {
+      this.wagons = result;
+    });
+    console.log(this.wagons$);
+    console.log('loading wagon id: ' + this.router.url.split('/').pop());
     this.wagonForm = this.formBuilder.group({
+      id: '',
       identifier: '',
       date_of_production: '',
       track_number: '',
