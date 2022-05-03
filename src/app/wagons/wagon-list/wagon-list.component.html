@@ -18,7 +18,18 @@
       <td>{{ wagon.track_number }}</td>
       <td>{{ wagon.siteName }}</td>
       <td id="edit">Edit</td>
-      <td id="delete">Delete</td>
+      <td id="delete">
+        <mat-card-actions>
+          <button
+            title="Delete wagon"
+            (click)="onDeleteWagon(wagon.id)"
+            mat-raised-button
+            color="warn"
+          >
+            <i class="material-icons">Delete</i>
+          </button>
+        </mat-card-actions>
+      </td>
     </ng-container>
   </tr>
 </table>

@@ -12,6 +12,7 @@ import {
   retry,
   tap,
 } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-wagon-list',
@@ -35,5 +36,12 @@ export class WagonListComponent implements OnInit {
 
   onNotify(wagon) {
     alert("Wagon '" + wagon.name + "' liked");
+  }
+
+  onDeleteWagon(eventId: number): void {
+    this.wagonService
+      .deleteWagon(eventId)
+      .pipe(switchMap((res) => this.wagonService.getWagons()))
+      .subscribe((result) => (this.wagons = result));
   }
 }
