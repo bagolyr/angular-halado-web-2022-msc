@@ -21,6 +21,7 @@ import { WagonCreateComponent } from './wagons/wagon-create/wagon-create.compone
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
