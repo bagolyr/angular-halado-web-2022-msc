@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { WagonListComponent } from './wagons/wagon-list/wagon-list.component';
 import { WagonService } from './wagon.service';
 import { WagonCreateComponent } from './wagons/wagon-create/wagon-create.component';
+import { WagonUpdateComponent } from './wagons/wagon-update/wagon-update.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { WagonCreateComponent } from './wagons/wagon-create/wagon-create.compone
       { path: '', component: WagonListComponent },
       { path: 'wagons', component: WagonListComponent },
       { path: 'create', component: WagonCreateComponent },
+      { path: 'update', component: WagonUpdateComponent },
     ]),
     MatButtonModule,
     MatCardModule,

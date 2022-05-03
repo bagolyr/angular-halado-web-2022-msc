@@ -17,7 +17,14 @@
       <td>{{ wagon.identifier }}</td>
       <td>{{ wagon.track_number }}</td>
       <td>{{ wagon.siteName }}</td>
-      <td id="edit">Edit</td>
+      <td id="edit">
+        <mat-icon
+          aria-hidden="false"
+          [routerLink]="['/edit', wagon.id]"
+          aria-label="Edit"
+          >edit</mat-icon
+        >
+      </td>
       <td id="delete">
         <mat-card-actions>
           <button

@@ -16,6 +16,9 @@ export class WagonCreateComponent implements OnInit {
       identifier: '',
       date_of_production: '',
       track_number: '',
+      owner: '',
+      siteID: '',
+      is_deleted: false,
     });
   }
 
