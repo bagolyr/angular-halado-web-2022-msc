@@ -2,7 +2,7 @@
 
 <div style="margin-bottom: 10px">
   <a mat-mini-fab routerLink="/create" color="primary">
-    <mat-icon>Add</mat-icon>
+    <mat-icon>+</mat-icon>
   </a>
 </div>
 
@@ -18,12 +18,16 @@
       <td>{{ wagon.track_number }}</td>
       <td>{{ wagon.siteName }}</td>
       <td id="edit">
-        <mat-icon
-          aria-hidden="false"
-          [routerLink]="['/edit', wagon.id]"
-          aria-label="Edit"
-          >Edit</mat-icon
-        >
+        <mat-card-actions>
+          <button
+            aria-hidden="false"
+            [routerLink]="['/edit', wagon.id]"
+            aria-label="Edit"
+            mat-raised-button
+          >
+            Edit
+          </button>
+        </mat-card-actions>
       </td>
       <td id="delete">
         <mat-card-actions>
