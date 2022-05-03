@@ -1,10 +1,10 @@
-<h2>Create a new wagon:</h2>
+<h2>Create a new wagon</h2>
 
-<div style="margin-bottom: 10px">
-  <a mat-mini-fab routerLink="/wagons" color="primary">
-    <mat-icon>Back to wagon list</mat-icon>
+<p>
+  <a mat-button routerLink="/wagons">
+    <b>Back to wagon list</b>
   </a>
-</div>
+</p>
 <form [formGroup]="wagonForm" (ngSubmit)="onSubmit(wagonForm.value)">
   <div>
     <mat-form-field appearance="outline">
@@ -13,6 +13,28 @@
       <mat-hint>Give the wagon identifier</mat-hint>
     </mat-form-field>
   </div>
-
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Wagon's date of production</mat-label>
+      <input
+        matInput
+        placeholder="Date of production"
+        formControlName="date_of_production"
+      />
+      <mat-hint>Give the wagons date of production</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Wagon's track number</mat-label>
+      <input
+        matInput
+        placeholder="Track number"
+        formControlName="track_number"
+      />
+      <mat-hint>Give the wagon track number</mat-hint>
+    </mat-form-field>
+  </div>
+  <br /><br />
   <button mat-raised-button color="primary" type>Create</button>
 </form>

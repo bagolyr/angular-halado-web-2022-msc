@@ -14,6 +14,8 @@ export class WagonCreateComponent implements OnInit {
   ngOnInit() {
     this.wagonForm = this.formBuilder.group({
       identifier: '',
+      date_of_production: '',
+      track_number: '',
     });
   }
 
