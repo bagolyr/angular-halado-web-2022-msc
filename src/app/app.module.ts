@@ -4,6 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -12,6 +16,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { environment } from '../environments/environment';
 import { WagonListComponent } from './wagons/wagon-list/wagon-list.component';
 import { WagonService } from './wagon.service';
+import { WagonCreateComponent } from './wagons/wagon-create/wagon-create.component';
 
 @NgModule({
   imports: [
@@ -24,9 +29,19 @@ import { WagonService } from './wagon.service';
     RouterModule.forRoot([
       { path: '', component: WagonListComponent },
       { path: 'wagons', component: WagonListComponent },
+      { path: 'create', component: WagonCreateComponent },
     ]),
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
   ],
-  declarations: [AppComponent, HelloComponent, WagonListComponent],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    WagonListComponent,
+    WagonCreateComponent,
+  ],
   bootstrap: [AppComponent],
   providers: [InMemoryEventService, WagonService],
 })
