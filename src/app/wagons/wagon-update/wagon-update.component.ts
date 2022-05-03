@@ -16,6 +16,7 @@ import {
 } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 import { Wagon } from '../../data/wagons';
+import { WagonActionTypes } from '../store/wagons.actions';
 
 @Component({
   selector: 'app-wagon-update',
@@ -33,6 +34,7 @@ export class WagonUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    //private store: Store,
     private wagonService: WagonService
   ) {}
 
@@ -55,6 +57,26 @@ export class WagonUpdateComponent implements OnInit {
       is_deleted: false,
     });
   }
+
+  /*ngOnInit() {
+    this.route.paramMap
+      .pipe(
+        map((params) => {
+          return this.store.dispatch(
+            wagonRequestedAction({ authorId: +params.get('wagonId') })
+          );
+        })
+      )
+      .subscribe();
+    this.store.pipe(select(selectLoadedWagon)).subscribe((author) => {
+      if (author && this.authorsForm) {
+        this.authorsForm.controls.id.setValue(author.id);
+        this.authorsForm.controls.name.setValue(author.name);
+        this.authorsForm.controls.birthYear.setValue(author.birthYear);
+        this.authorsForm.controls.nationality.setValue(author.nationality);
+      }
+    });
+  }*/
 
   onSubmit(data) {}
 }
