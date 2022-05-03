@@ -23,6 +23,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class WagonUpdateComponent implements OnInit {
   wagonForm: FormGroup;
+  wagonService: WagonService;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,6 +34,8 @@ export class WagonUpdateComponent implements OnInit {
   //constructor(private router: Router) {}
 
   ngOnInit() {
+    console.log(this.router.url);
+    //this.wagonService.getWagon();
     this.wagonForm = this.formBuilder.group({
       identifier: '',
       date_of_production: '',
