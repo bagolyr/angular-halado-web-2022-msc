@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -34,6 +35,7 @@ import { WagonUpdateComponent } from './wagons/wagon-update/wagon-update.compone
       { path: 'wagons', component: WagonListComponent },
       { path: 'create', component: WagonCreateComponent },
       { path: 'update', component: WagonUpdateComponent },
+      { path: 'edit/:wagonId', component: WagonUpdateComponent },
     ]),
     MatButtonModule,
     MatCardModule,
