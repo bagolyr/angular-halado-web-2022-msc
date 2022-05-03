@@ -1,7 +1,18 @@
-<p>wagon-create works!</p>
+<h2>Create a new wagon:</h2>
 
 <div style="margin-bottom: 10px">
   <a mat-mini-fab routerLink="/wagons" color="primary">
-    <mat-icon>add</mat-icon>
+    <mat-icon>Back to wagon list</mat-icon>
   </a>
 </div>
+<form [formGroup]="wagonForm" (ngSubmit)="onSubmit(wagonForm.value)">
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Wagon's identifier</mat-label>
+      <input matInput placeholder="identifier" formControlName="identifier" />
+      <mat-hint>Give the wagon identifier</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type>Create</button>
+</form>

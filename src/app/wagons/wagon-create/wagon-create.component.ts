@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-wagon-create',
@@ -6,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wagon-create.component.css'],
 })
 export class WagonCreateComponent implements OnInit {
-  constructor() {}
+  wagonForm: FormGroup;
 
-  ngOnInit() {}
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit() {
+    this.wagonForm = this.formBuilder.group({
+      identifier: '',
+    });
+  }
+
+  onSubmit(wagonData) {
+    alert('Form submitted:\n' + JSON.stringify(wagonData));
+    this.wagonForm.reset();
+  }
 }

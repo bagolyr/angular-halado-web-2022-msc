@@ -22,6 +22,7 @@ import { WagonCreateComponent } from './wagons/wagon-create/wagon-create.compone
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     environment.isMockEnabled
       ? HttpClientInMemoryWebApiModule.forRoot(InMemoryEventService)
