@@ -38,7 +38,7 @@ export class WagonCreateComponent implements OnInit {
   onSubmit(wagonData: any) {
     wagonData.id = 4;
     wagonData.is_deleted = false;
-    alert('Form submitted:\n' + JSON.stringify(wagonData));
+    console.log('Form submitted:\n' + JSON.stringify(wagonData));
     this.wagonService.createWagon(wagonData);
     //this.store.dispatch(wagonCreateAction(wagonData));
     this.wagonForm.reset();

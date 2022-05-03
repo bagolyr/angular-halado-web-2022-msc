@@ -31,7 +31,7 @@ export class WagonService {
     return this.requestService.get(`${WAGON_URL}/${wagonId}`);
   }
 
-  createWagon(wagon: Wagon): Observable<any> {
+  createWagon(wagon: any): Observable<any> {
     console.log('Create new wagon: ' + wagon);
     return this.requestService.post(`${WAGON_URL}/`, wagon);
   }
@@ -51,7 +51,7 @@ export class WagonService {
   }
 
   deleteWagon(wagonId: number): Observable<any> {
-    console.log('Deleted wagon: ' + wagonId);
+    console.log('Deleted wagon with the following id ' + wagonId);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
