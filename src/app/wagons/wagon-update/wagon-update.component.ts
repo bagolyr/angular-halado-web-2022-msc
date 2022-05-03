@@ -47,6 +47,7 @@ export class WagonUpdateComponent implements OnInit {
     });
     console.log(this.wagons$);
     console.log('loading wagon id: ' + this.router.url.split('/').pop());
+    console.log(this.wagonService.getWagon(this.router.url.split('/').pop()));
     this.wagonForm = this.formBuilder.group({
       id: '',
       identifier: '',

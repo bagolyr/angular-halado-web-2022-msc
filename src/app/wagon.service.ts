@@ -31,8 +31,8 @@ export class WagonService {
     return this.requestService.get(`${WAGON_URL}/${wagonId}`);
   }
 
-  createWagon(wagon: any): Observable<any> {
-    console.log(wagon);
+  createWagon(wagon: Wagon): Observable<any> {
+    console.log('Create new wagon: ' + wagon);
     return this.requestService.post(`${WAGON_URL}/`, wagon);
   }
 
