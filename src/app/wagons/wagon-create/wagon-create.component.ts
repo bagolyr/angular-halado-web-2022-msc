@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { WagonActionTypes } from '../store/wagons.actions';
 
 @Component({
   selector: 'app-wagon-create',
@@ -9,7 +12,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class WagonCreateComponent implements OnInit {
   wagonForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private store: Store
+  ) {}
 
   ngOnInit() {
     this.wagonForm = this.formBuilder.group({
@@ -22,8 +29,11 @@ export class WagonCreateComponent implements OnInit {
     });
   }
 
-  onSubmit(wagonData) {
+  onSubmit(wagonData: any) {
     alert('Form submitted:\n' + JSON.stringify(wagonData));
+    wagonData.deleted = false;
+    //this.store.dispatch(wagonCreateAction(wagonData));
     this.wagonForm.reset();
+    this.router.navigate(['/wagons']);
   }
 }
