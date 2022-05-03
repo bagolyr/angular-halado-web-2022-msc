@@ -1,17 +1,18 @@
 <h2>Wagons</h2>
 
-<table>
+<table id="wagontable">
   <th>Identifier</th>
   <th>Track number</th>
   <th>SiteName</th>
-  <th>Action</th>
-</table>
-<table *ngFor="let wagon of wagons">
-  <tr *ngIf="!wagon.is_deleted">
-    <td>{{ wagon.identifier }}</td>
-    <td>{{ wagon.track_number }}</td>
-    <td>{{ wagon.siteName }}</td>
-    <td id="edit">Edit</td>
-    <td id="delete">Delete</td>
+  <th>Edit</th>
+  <th>Delete</th>
+  <tr *ngFor="let wagon of wagons">
+    <ng-container *ngIf="!wagon.is_deleted">
+      <td>{{ wagon.identifier }}</td>
+      <td>{{ wagon.track_number }}</td>
+      <td>{{ wagon.siteName }}</td>
+      <td id="edit">Edit</td>
+      <td id="delete">Delete</td>
+    </ng-container>
   </tr>
 </table>
