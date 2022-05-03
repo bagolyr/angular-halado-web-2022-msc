@@ -5,3 +5,22 @@
     <b>Back to wagon list</b>
   </a>
 </p>
+<form [formGroup]="wagonForm" (ngSubmit)="onSubmit(wagonForm.getRawValue())">
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Author's ID</mat-label>
+      <input type="number" matInput placeholder="Id" formControlName="id" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Author's name</mat-label>
+      <input matInput placeholder="Identifier" formControlName="identifier" />
+      <mat-hint>Give the Wagon's identifier</mat-hint>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary" type [disabled]="wagonForm.invalid">
+    Update
+  </button>
+</form>
+<p>Form Status: {{ wagonForm.status }}</p>
