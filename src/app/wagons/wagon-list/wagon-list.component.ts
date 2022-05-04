@@ -116,7 +116,20 @@ export class WagonListComponent implements OnInit {
   }
 
   onClick(event: any) {
-    console.log('Selected siteID: ' + event.target.id);
+    console.log(
+      'wagon-list component: onClick(Selected siteID): ' + event.target.id
+    );
+    console.log(
+      this.wagons.filter((wagon) => wagon.siteID === Number(event.target.id))
+    );
+    this.wagons = this.wagons.filter(
+      (wagon) => wagon.siteID === Number(event.target.id)
+    );
+
+    /*this.wagons$ = this.wagonService.wagonSiteExists(event.target.id);
+    this.wagons$.subscribe((result) => {
+      this.wagons = result;
+    });*/
   }
 
   removeData() {
