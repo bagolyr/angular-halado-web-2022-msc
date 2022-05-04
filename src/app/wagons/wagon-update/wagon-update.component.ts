@@ -38,8 +38,6 @@ export class WagonUpdateComponent implements OnInit {
     private wagonService: WagonService
   ) {}
 
-  //constructor(private router: Router) {}
-
   ngOnInit() {
     const n: number = Number(this.router.url.split('/').pop());
 
@@ -49,11 +47,6 @@ export class WagonUpdateComponent implements OnInit {
     });
 
     console.log('Loading wagon id: ' + n);
-
-    /*this.wagonService
-      .getWagon(n)
-      .pipe(switchMap((res) => this.wagonService.getWagons()))
-      .subscribe((result) => (this.wagons = result));*/
 
     this.wagonForm = this.formBuilder.group({
       id: '',
