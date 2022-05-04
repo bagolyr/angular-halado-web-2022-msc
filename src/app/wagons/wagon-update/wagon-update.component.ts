@@ -80,5 +80,7 @@ export class WagonUpdateComponent implements OnInit {
     });
   }*/
 
-  onSubmit(data) {}
+  onSubmit(data) {
+    console.log(data);
+  }
 }
