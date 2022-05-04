@@ -98,9 +98,13 @@ export class WagonListComponent implements OnInit {
     this.table.renderRows();
   }
 
-  addFormData(data) {
+  addFormData(data: Wagon) {
+    console.log(
+      'Adding the following content to the DB: ' + JSON.stringify(data)
+    );
     const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.wagons.push(ELEMENT_DATA[randomElementIndex]);
+    this.wagons.push(data);
+    //forthis.wagons.push(ELEMENT_DATA[randomElementIndex]);
     this.table.renderRows();
   }
 
