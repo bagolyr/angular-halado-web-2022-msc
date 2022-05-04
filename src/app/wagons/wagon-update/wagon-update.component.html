@@ -8,11 +8,24 @@
 <form [formGroup]="wagonForm" (ngSubmit)="onSubmit(wagonForm.getRawValue())">
   <div>
     <mat-form-field appearance="outline">
+      <mat-label>{{ wagons.id }}</mat-label>
+      <input
+        matInput
+        placeholder="{{ wagons.id }}"
+        formControlName="id"
+        [(ngModel)]="wagons.id"
+      />
+      <mat-hint>Wagon's id</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
       <mat-label>{{ wagons.identifier }}</mat-label>
       <input
         matInput
         placeholder="{{ wagons.identifier }}"
         formControlName="identifier"
+        [(ngModel)]="wagons.identifier"
       />
       <mat-hint>Give the Wagon's identifier</mat-hint>
     </mat-form-field>
@@ -24,6 +37,7 @@
         matInput
         placeholder="{{ wagons.date_of_production }}"
         formControlName="date_of_production"
+        [(ngModel)]="wagons.date_of_production"
       />
       <mat-hint>Give the Wagon's production date</mat-hint>
     </mat-form-field>
@@ -35,6 +49,7 @@
         matInput
         placeholder="{{ wagons.track_number }}"
         formControlName="track_number"
+        [(ngModel)]="wagons.track_number"
       />
       <mat-hint>Give the Wagon's track number</mat-hint>
     </mat-form-field>
@@ -46,6 +61,7 @@
         matInput
         placeholder="{{ wagons.owner }}"
         formControlName="owner"
+        [(ngModel)]="wagons.owner"
       />
       <mat-hint>Give the Wagon's owner</mat-hint>
     </mat-form-field>
@@ -57,6 +73,7 @@
         matInput
         placeholder="{{ wagons.siteID }}"
         formControlName="siteID"
+        [(ngModel)]="wagons.siteID"
       />
       <mat-hint>Give the Wagon's siteID</mat-hint>
     </mat-form-field>
@@ -68,6 +85,7 @@
         matInput
         placeholder="{{ wagons.is_deleted }}"
         formControlName="is_deleted"
+        [(ngModel)]="wagons.is_deleted"
       />
       <mat-hint>Is the wagon deleted?</mat-hint>
     </mat-form-field>
@@ -79,6 +97,7 @@
         matInput
         placeholder="{{ wagons.siteName }}"
         formControlName="siteName"
+        [(ngModel)]="wagons.siteName"
       />
       <mat-hint>Wagon's site name</mat-hint>
     </mat-form-field>
