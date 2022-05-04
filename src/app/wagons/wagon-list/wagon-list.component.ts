@@ -14,6 +14,7 @@ import {
 } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 import { MatTable } from '@angular/material/table';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 export interface PeriodicElement {
   id: number;
@@ -47,7 +48,12 @@ const ELEMENT_DATA: Wagon[] = [
 export class WagonListComponent implements OnInit {
   //public wagons = [];
 
-  constructor(private wagonService: WagonService) {}
+  wagonForm: FormGroup;
+
+  constructor(
+    private wagonService: WagonService,
+    private formBuilder: FormBuilder
+  ) {}
 
   wagons$: Observable<any>;
   wagons;
@@ -56,6 +62,15 @@ export class WagonListComponent implements OnInit {
     this.wagons$ = this.wagonService.getWagons();
     this.wagons$.subscribe((result) => {
       this.wagons = result;
+    });
+
+    this.wagonForm = this.formBuilder.group({
+      identifier: '',
+      date_of_production: '',
+      track_number: '',
+      owner: '',
+      siteID: '',
+      is_deleted: false,
     });
   }
 
@@ -77,6 +92,12 @@ export class WagonListComponent implements OnInit {
   @ViewChild(MatTable) table: MatTable<PeriodicElement>;
 
   addData() {
+    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
+    this.wagons.push(ELEMENT_DATA[randomElementIndex]);
+    this.table.renderRows();
+  }
+
+  addFormData(data) {
     const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
     this.wagons.push(ELEMENT_DATA[randomElementIndex]);
     this.table.renderRows();
