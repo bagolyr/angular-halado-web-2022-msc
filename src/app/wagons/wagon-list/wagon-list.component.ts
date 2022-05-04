@@ -86,4 +86,18 @@ export class WagonListComponent implements OnInit {
     this.wagons.pop();
     this.table.renderRows();
   }
+
+  step = 0;
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
 }

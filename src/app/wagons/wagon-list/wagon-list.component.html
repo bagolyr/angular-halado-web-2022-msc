@@ -1,10 +1,50 @@
 <h2>Wagon list</h2>
 
-<div class="demo-button-container">
-  <button mat-raised-button (click)="addData()" class="demo-button">
-    Add data
-  </button>
-</div>
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Add data </mat-panel-title>
+      <mat-panel-description> Type the wagon details </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Identifier</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date of production</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Track number</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Owner</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>SiteID</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Is Deleted</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Site Name</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-action-row>
+      <button mat-button color="primary" (click)="addData()">Save</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
 
 <table mat-table [dataSource]="wagons" class="mat-elevation-z8 demo-table">
   <!-- Identifier Column -->

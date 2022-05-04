@@ -20,6 +20,7 @@ import { WagonListComponent } from './wagons/wagon-list/wagon-list.component';
 import { WagonService } from './wagon.service';
 import { WagonCreateComponent } from './wagons/wagon-create/wagon-create.component';
 import { WagonUpdateComponent } from './wagons/wagon-update/wagon-update.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { WagonUpdateComponent } from './wagons/wagon-update/wagon-update.compone
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    MatExpansionModule,
     HttpClientModule,
     MatTableModule,
     StoreModule,
