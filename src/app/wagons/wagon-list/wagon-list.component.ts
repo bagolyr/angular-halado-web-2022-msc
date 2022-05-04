@@ -102,6 +102,7 @@ export class WagonListComponent implements OnInit {
     console.log(
       'Adding the following content to the DB: ' + JSON.stringify(data)
     );
+    data.id = this.constructor['ɵcmp'].id;
     const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
     this.wagons.push(data);
     //forthis.wagons.push(ELEMENT_DATA[randomElementIndex]);
