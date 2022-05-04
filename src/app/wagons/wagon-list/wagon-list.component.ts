@@ -75,7 +75,6 @@ export class WagonListComponent implements OnInit {
     this.wagons$.subscribe((result) => {
       this.wagons = result;
     });
-
     this.InitForm();
   }
 
@@ -108,9 +107,9 @@ export class WagonListComponent implements OnInit {
     );
     alert('Identifier ' + data.identifier + ' has been added to the database');
     data.id = this.constructor['ɵcmp'].id;
-    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
+    //const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
     this.wagons.push(data);
-    this.InitForm();
+    //this.InitForm();
     //forthis.wagons.push(ELEMENT_DATA[randomElementIndex]);
     this.table.renderRows();
   }
