@@ -62,7 +62,9 @@
 
   <!-- Site name Column -->
   <ng-container matColumnDef="siteName">
-    <th mat-header-cell *matHeaderCellDef>Site Name</th>
+    <th mat-header-cell *matHeaderCellDef (click)="resetPerspective()">
+      Site Name
+    </th>
     <td
       mat-cell
       id=" {{ wagons.siteID }}"

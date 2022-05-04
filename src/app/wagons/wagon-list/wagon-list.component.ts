@@ -79,6 +79,14 @@ export class WagonListComponent implements OnInit {
     this.InitForm();
   }
 
+  resetPerspective() {
+    this.wagons$ = this.wagonService.getWagons();
+    this.wagons$.subscribe((result) => {
+      this.wagons = result;
+    });
+    this.InitForm();
+  }
+
   onDeleteWagon(eventId: number): void {
     this.wagonService
       .deleteWagon(eventId)
