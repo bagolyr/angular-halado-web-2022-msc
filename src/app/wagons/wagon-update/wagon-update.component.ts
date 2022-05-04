@@ -28,7 +28,7 @@ export class WagonUpdateComponent implements OnInit {
 
   loadedWagon: Wagon;
   wagons$: Observable<any>;
-  wagons: Wagon;
+  wagons;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -55,7 +55,7 @@ export class WagonUpdateComponent implements OnInit {
       track_number: '',
       owner: '',
       siteID: '',
-      is_deleted: false,
+      is_deleted: '',
     });
   }
 

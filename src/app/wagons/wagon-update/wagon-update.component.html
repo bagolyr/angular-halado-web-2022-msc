@@ -14,6 +14,62 @@
       <mat-hint>Give the Wagon's identifier</mat-hint>
     </mat-form-field>
   </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Wagon's date of production</mat-label>
+      <input
+        matInput
+        placeholder="Date of production"
+        formControlName="date_of_production"
+      />
+      <label>{{ wagons.date_of_production }}</label>
+      <mat-hint>Give the Wagon's production date</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Wagon's track number</mat-label>
+      <input
+        matInput
+        placeholder="Track number"
+        formControlName="track_number"
+      />
+      <label>{{ wagons.track_number }}</label>
+      <mat-hint>Give the Wagon's track number</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Wagon's Owner</mat-label>
+      <input matInput placeholder="Owner" formControlName="owner" />
+      <label>{{ wagons.owner }}</label>
+      <mat-hint>Give the Wagon's owner</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Wagon's siteID</mat-label>
+      <input matInput placeholder="Owner" formControlName="siteID" />
+      <label>{{ wagons.siteID }}</label>
+      <mat-hint>Give the Wagon's siteID</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Is the wagon deleted</mat-label>
+      <input matInput placeholder="Owner" formControlName="is_deleted" />
+      <label>{{ wagons.is_deleted }}</label>
+      <mat-hint>Is the wagon deleted?</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Wagon's site name</mat-label>
+      <input matInput placeholder="Owner" formControlName="siteName" />
+      <label>{{ wagons.siteName }}</label>
+      <mat-hint>Wagon's site name</mat-hint>
+    </mat-form-field>
+  </div>
   <br />
   <button mat-raised-button color="primary" type [disabled]="wagonForm.invalid">
     Update
