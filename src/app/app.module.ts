@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { StoreModule } from '@ngrx/store';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -27,6 +28,7 @@ import { WagonUpdateComponent } from './wagons/wagon-update/wagon-update.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatTableModule,
     StoreModule,
     environment.isMockEnabled
       ? HttpClientInMemoryWebApiModule.forRoot(InMemoryEventService)
