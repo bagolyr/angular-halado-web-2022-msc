@@ -60,26 +60,6 @@ export class WagonUpdateComponent implements OnInit {
     });
   }
 
-  /*ngOnInit() {
-    this.route.paramMap
-      .pipe(
-        map((params) => {
-          return this.store.dispatch(
-            wagonRequestedAction({ authorId: +params.get('wagonId') })
-          );
-        })
-      )
-      .subscribe();
-    this.store.pipe(select(selectLoadedWagon)).subscribe((author) => {
-      if (author && this.authorsForm) {
-        this.authorsForm.controls.id.setValue(author.id);
-        this.authorsForm.controls.name.setValue(author.name);
-        this.authorsForm.controls.birthYear.setValue(author.birthYear);
-        this.authorsForm.controls.nationality.setValue(author.nationality);
-      }
-    });
-  }*/
-
   onSubmit(data) {
     console.log(data);
 
@@ -87,5 +67,7 @@ export class WagonUpdateComponent implements OnInit {
     this.wagons$.subscribe((result) => {
       this.wagons = result;
     });
+    alert('Update successful!');
+    this.router.navigate(['/wagons']);
   }
 }
