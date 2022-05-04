@@ -27,7 +27,7 @@ export class WagonService {
     return this.requestService.get<Wagon[]>(WAGON_URL);
   }*/
 
-  getWagon(wagonId): Observable<any> {
+  getWagon(wagonId: number): Observable<any> {
     return this.requestService.get(`${WAGON_URL}/${wagonId}`);
   }
 

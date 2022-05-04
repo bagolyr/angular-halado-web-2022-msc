@@ -41,13 +41,20 @@ export class WagonUpdateComponent implements OnInit {
   //constructor(private router: Router) {}
 
   ngOnInit() {
-    this.wagons$ = this.wagonService.getWagons();
+    const n: number = Number(this.router.url.split('/').pop());
+
+    this.wagons$ = this.wagonService.getWagon(n);
     this.wagons$.subscribe((result) => {
       this.wagons = result;
     });
-    const n: number = Number(this.router.url.split('/').pop());
+
     console.log('Loading wagon id: ' + n);
-    console.log(this.wagonService.getWagon(n));
+
+    /*this.wagonService
+      .getWagon(n)
+      .pipe(switchMap((res) => this.wagonService.getWagons()))
+      .subscribe((result) => (this.wagons = result));*/
+
     this.wagonForm = this.formBuilder.group({
       id: '',
       identifier: '',
