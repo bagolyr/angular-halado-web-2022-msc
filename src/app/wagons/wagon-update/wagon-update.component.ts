@@ -28,7 +28,7 @@ export class WagonUpdateComponent implements OnInit {
 
   loadedWagon: Wagon;
   wagons$: Observable<any>;
-  wagons;
+  wagons: Wagon;
 
   constructor(
     private formBuilder: FormBuilder,
