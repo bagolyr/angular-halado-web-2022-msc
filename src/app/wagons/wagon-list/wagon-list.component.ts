@@ -58,12 +58,7 @@ export class WagonListComponent implements OnInit {
   wagons$: Observable<any>;
   wagons;
 
-  ngOnInit() {
-    this.wagons$ = this.wagonService.getWagons();
-    this.wagons$.subscribe((result) => {
-      this.wagons = result;
-    });
-
+  InitForm() {
     this.wagonForm = this.formBuilder.group({
       identifier: '',
       date_of_production: '',
@@ -73,6 +68,15 @@ export class WagonListComponent implements OnInit {
       is_deleted: false,
       siteName: '',
     });
+  }
+
+  ngOnInit() {
+    this.wagons$ = this.wagonService.getWagons();
+    this.wagons$.subscribe((result) => {
+      this.wagons = result;
+    });
+
+    this.InitForm();
   }
 
   onDeleteWagon(eventId: number): void {
@@ -102,9 +106,11 @@ export class WagonListComponent implements OnInit {
     console.log(
       'Adding the following content to the DB: ' + JSON.stringify(data)
     );
+    alert('Identifier ' + data.identifier + ' has been added to the database');
     data.id = this.constructor['ɵcmp'].id;
     const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
     this.wagons.push(data);
+    this.InitForm();
     //forthis.wagons.push(ELEMENT_DATA[randomElementIndex]);
     this.table.renderRows();
   }
