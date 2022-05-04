@@ -56,6 +56,7 @@ export class WagonUpdateComponent implements OnInit {
       owner: '',
       siteID: '',
       is_deleted: '',
+      siteName: '',
     });
   }
 
