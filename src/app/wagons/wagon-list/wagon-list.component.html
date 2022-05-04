@@ -67,7 +67,7 @@
       mat-cell
       id=" {{ wagons.siteID }}"
       *matCellDef="let wagons"
-      (click)="onClick($event)"
+      (click)="onClickFilterWagonsBySiteId($event)"
     >
       {{ wagons.siteName }}
     </td>

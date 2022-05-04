@@ -115,7 +115,7 @@ export class WagonListComponent implements OnInit {
     this.table.renderRows();
   }
 
-  onClick(event: any) {
+  onClickFilterWagonsBySiteId(event: any) {
     console.log(
       'wagon-list component: onClick(Selected siteID): ' + event.target.id
     );
