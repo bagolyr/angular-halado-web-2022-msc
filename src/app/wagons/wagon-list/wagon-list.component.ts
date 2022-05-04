@@ -71,6 +71,7 @@ export class WagonListComponent implements OnInit {
       owner: '',
       siteID: '',
       is_deleted: false,
+      siteName: '',
     });
   }
 
