@@ -35,6 +35,7 @@ const ELEMENT_DATA: Wagon[] = [
     owner: 'WagonOwner1',
     siteID: 1,
     is_deleted: false,
+    siteName: 'Name1',
   },
 ];
 
@@ -77,7 +78,7 @@ export class WagonListComponent implements OnInit {
 
   addData() {
     const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.wagons.push(ELEMENT_DATA[0]);
+    this.wagons.push(ELEMENT_DATA[randomElementIndex]);
     this.table.renderRows();
   }
 
