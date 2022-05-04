@@ -82,5 +82,10 @@ export class WagonUpdateComponent implements OnInit {
 
   onSubmit(data) {
     console.log(data);
+
+    this.wagons$ = this.wagonService.updateWagon(data);
+    this.wagons$.subscribe((result) => {
+      this.wagons = result;
+    });
   }
 }
