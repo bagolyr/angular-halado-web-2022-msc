@@ -1,89 +1,59 @@
-<h2>Wagons</h2>
-
-<div style="margin-bottom: 10px">
-  <a mat-mini-fab routerLink="/create" color="primary">
-    <mat-icon>+</mat-icon>
-  </a>
-</div>
-
-<table id="wagontable">
-  <th>Identifier</th>
-  <th>Track number</th>
-  <th>SiteName</th>
-  <th>Edit</th>
-  <th>Delete</th>
-  <tr *ngFor="let wagon of wagons">
-    <ng-container *ngIf="!wagon.is_deleted">
-      <td>{{ wagon.identifier }}</td>
-      <td>{{ wagon.track_number }}</td>
-      <td>{{ wagon.siteName }}</td>
-      <td id="edit">
-        <mat-card-actions>
-          <button
-            aria-hidden="false"
-            [routerLink]="['/edit', wagon.id]"
-            aria-label="Edit"
-            mat-raised-button
-          >
-            Edit
-          </button>
-        </mat-card-actions>
-      </td>
-      <td id="delete">
-        <mat-card-actions>
-          <button
-            title="Delete wagon"
-            (click)="onDeleteWagon(wagon.id)"
-            mat-raised-button
-            color="warn"
-          >
-            <i class="material-icons">Delete</i>
-          </button>
-        </mat-card-actions>
-      </td>
-    </ng-container>
-  </tr>
-</table>
+<h2>Wagon list</h2>
 
 <div class="demo-button-container">
   <button mat-raised-button (click)="addData()" class="demo-button">
     Add data
   </button>
-  <button
-    mat-raised-button
-    [disabled]="!dataSource.length"
-    (click)="removeData()"
-    class="demo-button"
-  >
-    Remove data
-  </button>
 </div>
 
 <table mat-table [dataSource]="wagons" class="mat-elevation-z8 demo-table">
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef>No.</th>
-    <td mat-cell *matCellDef="let wagons">{{ wagons.id }}</td>
+  <!-- Identifier Column -->
+  <ng-container matColumnDef="identifier">
+    <th mat-header-cell *matHeaderCellDef>Identifier</th>
+    <td mat-cell *matCellDef="let wagons">{{ wagons.identifier }}</td>
   </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  <!-- Track number Column -->
+  <ng-container matColumnDef="track_number">
+    <th mat-header-cell *matHeaderCellDef>Track number</th>
+    <td mat-cell *matCellDef="let wagons">{{ wagons.track_number }}</td>
   </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef>Weight</th>
-    <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+  <!-- Site name Column -->
+  <ng-container matColumnDef="siteName">
+    <th mat-header-cell *matHeaderCellDef>Site Name</th>
+    <td mat-cell *matCellDef="let wagons">{{ wagons.siteName }}</td>
   </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef>Symbol</th>
-    <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+  <!-- Edit Column -->
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef>Delete</th>
+    <td mat-cell *matCellDef="let wagons">
+      <button
+        aria-hidden="false"
+        [routerLink]="['/edit', wagons.id]"
+        aria-label="Edit"
+        mat-raised-button
+      >
+        Edit
+      </button>
+    </td>
   </ng-container>
 
+  <!-- Delete Column -->
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef>Delete</th>
+    <td mat-cell *matCellDef="let wagons">
+      <button
+        id="remove"
+        (click)="onDeleteWagon(wagons.id)"
+        mat-raised-button
+        color="warn"
+      >
+        Delete
+      </button>
+    </td>
+  </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
