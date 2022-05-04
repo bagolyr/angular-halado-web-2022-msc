@@ -60,6 +60,7 @@ export class WagonListComponent implements OnInit {
 
   InitForm() {
     this.wagonForm = this.formBuilder.group({
+      id: '',
       identifier: '',
       date_of_production: '',
       track_number: '',
@@ -112,6 +113,10 @@ export class WagonListComponent implements OnInit {
     //this.InitForm();
     //forthis.wagons.push(ELEMENT_DATA[randomElementIndex]);
     this.table.renderRows();
+  }
+
+  onClick(event: any) {
+    console.log('Selected siteID: ' + event.target.id);
   }
 
   removeData() {

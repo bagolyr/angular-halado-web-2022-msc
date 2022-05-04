@@ -63,7 +63,14 @@
   <!-- Site name Column -->
   <ng-container matColumnDef="siteName">
     <th mat-header-cell *matHeaderCellDef>Site Name</th>
-    <td mat-cell *matCellDef="let wagons">{{ wagons.siteName }}</td>
+    <td
+      mat-cell
+      id=" {{ wagons.siteID }}"
+      *matCellDef="let wagons"
+      (click)="onClick($event)"
+    >
+      {{ wagons.siteName }}
+    </td>
   </ng-container>
 
   <!-- Edit Column -->
