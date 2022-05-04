@@ -1,10 +1,10 @@
 <h2>Wagon list</h2>
 
 <mat-accordion class="example-headers-align">
-  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(1)" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title> Add data </mat-panel-title>
-      <mat-panel-description> Type the wagon details </mat-panel-description>
+      <mat-panel-description> Click to expand and hide</mat-panel-description>
     </mat-expansion-panel-header>
     <form [formGroup]="wagonForm" (ngSubmit)="addFormData(wagonForm.value)">
       <mat-form-field appearance="fill">
