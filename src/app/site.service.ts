@@ -27,16 +27,16 @@ export class SiteService {
     return this.requestService.get<Wagon[]>(SITE_URL);
   }*/
 
-  getWagon(siteId: number): Observable<any> {
+  getSite(siteId: number): Observable<any> {
     return this.requestService.get(`${SITE_URL}/${siteId}`);
   }
 
-  createWagon(wagon: any): Observable<any> {
+  createSite(wagon: any): Observable<any> {
     console.log('Create new site: ' + wagon);
     return this.requestService.post(`${SITE_URL}/`, wagon);
   }
 
-  createWagonNew(wagon: any): Observable<any> {
+  createSiteNew(wagon: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -46,11 +46,11 @@ export class SiteService {
     return this.requestService.post(url, httpOptions);
   }
 
-  updateWagon(wagon: any): Observable<any> {
+  updateSite(wagon: any): Observable<any> {
     return this.requestService.put(`${SITE_URL}/`, wagon);
   }
 
-  deleteWagon(siteId: number): Observable<any> {
+  deleteSite(siteId: number): Observable<any> {
     console.log('Deleted site with the following id ' + siteId);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -61,10 +61,10 @@ export class SiteService {
     return this.requestService.delete(url, httpOptions);
   }
 
-  wagonNameExists(name: string): Observable<boolean> {
+  siteNameExists(name: string): Observable<boolean> {
     return this.getSites().pipe(
-      map((wagons) => {
-        return wagons.findIndex((site) => site.identifier === name) !== -1;
+      map((sites) => {
+        return sites.findIndex((site) => site.identifier === name) !== -1;
       })
     );
   }

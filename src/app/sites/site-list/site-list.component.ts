@@ -48,7 +48,7 @@ export interface PeriodicElement {
 export class SiteListComponent implements OnInit {
   //public wagons = [];
 
-  wagonForm: FormGroup;
+  siteForm: FormGroup;
 
   constructor(
     private siteService: SiteService,
@@ -60,15 +60,12 @@ export class SiteListComponent implements OnInit {
   sites;
 
   InitForm() {
-    this.wagonForm = this.formBuilder.group({
+    this.siteForm = this.formBuilder.group({
       id: '',
-      identifier: '',
-      date_of_production: '',
-      track_number: '',
+      name: '',
       owner: '',
-      siteID: '',
-      is_deleted: false,
-      siteName: '',
+      address: '',
+      code: '',
     });
   }
 
@@ -89,9 +86,9 @@ export class SiteListComponent implements OnInit {
     this.InitForm();
   }
 
-  onDeleteWagon(eventId: number): void {
+  onDeleteSite(eventId: number): void {
     this.siteService
-      .deleteWagon(eventId)
+      .deleteSite(eventId)
       .pipe(switchMap((res) => this.siteService.getSites()))
       .subscribe((result) => (this.sites = result));
   }
