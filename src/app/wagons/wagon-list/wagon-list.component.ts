@@ -116,10 +116,7 @@ export class WagonListComponent implements OnInit {
     );
     alert('Identifier ' + data.identifier + ' has been added to the database');
     data.id = this.constructor['ɵcmp'].id;
-    //const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
     this.wagons.push(data);
-    //this.InitForm();
-    //forthis.wagons.push(ELEMENT_DATA[randomElementIndex]);
     this.table.renderRows();
   }
 
@@ -133,11 +130,6 @@ export class WagonListComponent implements OnInit {
     this.wagons = this.wagons.filter(
       (wagon) => wagon.siteID === Number(event.target.id)
     );
-
-    /*this.wagons$ = this.wagonService.wagonSiteExists(event.target.id);
-    this.wagons$.subscribe((result) => {
-      this.wagons = result;
-    });*/
   }
 
   removeData() {

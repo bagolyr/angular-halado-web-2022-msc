@@ -21,8 +21,6 @@ import { WagonService } from './wagon.service';
 import { WagonCreateComponent } from './wagons/wagon-create/wagon-create.component';
 import { WagonUpdateComponent } from './wagons/wagon-update/wagon-update.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { AppRoutingModule } from './app-routing.module';
-import { AuthService } from './auth.service';
 
 @NgModule({
   imports: [
@@ -34,24 +32,29 @@ import { AuthService } from './auth.service';
     HttpClientModule,
     MatTableModule,
     StoreModule,
-    AppRoutingModule,
     environment.isMockEnabled
       ? HttpClientInMemoryWebApiModule.forRoot(InMemoryEventService)
       : [],
-    AppRoutingModule,
-    /*RouterModule.forRoot([
+    RouterModule.forRoot([
       { path: '', component: WagonListComponent },
       { path: 'wagons', component: WagonListComponent },
       { path: 'create', component: WagonCreateComponent },
       { path: 'edit', component: WagonUpdateComponent },
       { path: 'edit/:wagonId', component: WagonUpdateComponent },
-    ])*/ MatButtonModule,
+    ]),
+    MatButtonModule,
     MatCardModule,
     MatIconModule,
     MatInputModule,
   ],
-  declarations: [AppComponent, HelloComponent],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    WagonListComponent,
+    WagonCreateComponent,
+    WagonUpdateComponent,
+  ],
   bootstrap: [AppComponent],
-  providers: [InMemoryEventService, WagonService, AuthService],
+  providers: [InMemoryEventService, WagonService],
 })
-export class AppModule {}
+export class SitesModule {}

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { WagonsComponent } from './wagons/wagons.component';
-import { AuthGuard } from '../auth/auth.guard';
 import { WagonListComponent } from './wagon-list/wagon-list.component';
-import { WagonService } from '../wagon.service';
-import { WagonCreateComponent } from './wagon-create/wagon-create.component';
-import { WagonUpdateComponent } from './wagon-update/wagon-update.component';
+import { WagonsComponent } from './wagons/wagons.component';
+//import { EventSocialComponent } from './event-social/event-social.component';
+//import { EventDetailsComponent } from './event-details/event-details.component';
+//import { EventCreateComponent } from './event-create/event-create.component';
+import { AuthGuard } from '../auth/auth.guard';
+import { WagonUpdateComponent } from '../wagons/wagon-update/wagon-update.component';
 
 const routes: Routes = [
   {
@@ -22,17 +23,17 @@ const routes: Routes = [
             path: '',
             component: WagonListComponent,
           },
-          /*{
-          path: 'details/:eventId',
-          component: EventDetailsComponent
-        },*/
           {
-            path: 'edit/:wagonId',
+            path: 'wagons',
+            component: WagonListComponent,
+          },
+          {
+            path: 'edit',
             component: WagonUpdateComponent,
           },
           {
-            path: 'create',
-            component: WagonCreateComponent,
+            path: 'wagons/edit/:wagonId',
+            component: WagonUpdateComponent,
           },
         ],
       },
@@ -46,4 +47,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BooksRoutingModule {}
+export class WagonsRoutingModule {}
