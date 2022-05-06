@@ -55,6 +55,7 @@ export class WagonListComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
 
+  increasingID: number;
   wagons$: Observable<any>;
   wagons;
 
@@ -77,6 +78,7 @@ export class WagonListComponent implements OnInit {
       this.wagons = result;
     });
     this.InitForm();
+    this.increasingID = 4;
   }
 
   resetPerspective() {
@@ -111,13 +113,14 @@ export class WagonListComponent implements OnInit {
   }
 
   addFormData(data: Wagon) {
+    data.id = this.increasingID;
     console.log(
       'Adding the following content to the DB: ' + JSON.stringify(data)
     );
     alert('Identifier ' + data.identifier + ' has been added to the database');
-    data.id = this.constructor['ɵcmp'].id;
     this.wagons.push(data);
     this.table.renderRows();
+    this.increasingID = this.increasingID + 1;
   }
 
   onClickFilterWagonsBySiteId(event: any) {

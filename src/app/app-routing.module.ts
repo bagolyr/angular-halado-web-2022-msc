@@ -9,12 +9,12 @@ const routes: Routes = [
       import('./wagons/wagons.module').then((m) => m.WagonModule),
     canLoad: [AuthGuard],
   },
-  /*  {
-    path: 'wagons',
+  {
+    path: 'sites',
     loadChildren: () =>
-      import('./wagons/wagons.module').then((m) => m.WagonModule),
+      import('./sites/sites.module').then((m) => m.SitesModule),
     //canLoad: [AuthGuard],
-  },*/
+  },
   {
     path: '',
     redirectTo: '',
