@@ -1,0 +1,57 @@
+#wagontable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#wagontable td,
+#wagontable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#wagontable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#wagontable tr:hover {
+  background-color: #ddd;
+}
+
+#wagontable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.hovered:hover {
+  color: blue;
+}

@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'sites',
     loadChildren: () =>
       import('./sites/sites.module').then((m) => m.SitesModule),
-    //canLoad: [AuthGuard],
+    canLoad: [AuthGuard],
   },
   {
     path: '',

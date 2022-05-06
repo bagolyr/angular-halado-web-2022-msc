@@ -18,8 +18,8 @@ import { InMemoryEventService } from '../in-memory-event.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { environment } from '../../environments/environment';
 import { SitesComponent } from './sites/sites.component';
-//import { WagonListComponent } from '../wagons/wagon-list/wagon-list.component';
-//import { WagonService } from '../wagon.service';
+import { SiteListComponent } from '../sites/site-list/site-list.component';
+import { SiteService } from '../site.service';
 //import { WagonCreateComponent } from '../wagons/wagon-create/wagon-create.component';
 //import { WagonUpdateComponent } from '../wagons/wagon-update/wagon-update.component';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -53,12 +53,12 @@ import { SitesRoutingModule } from './sites-routing.module';
     MatInputModule,
   ],
   declarations: [
-    //    WagonsComponent,
-    //    WagonListComponent,
+    SitesComponent,
+    SiteListComponent,
     //    WagonCreateComponent,
     //    WagonUpdateComponent,
   ],
   //bootstrap: [AppComponent],
-  providers: [InMemoryEventService /*WagonService*/],
+  providers: [InMemoryEventService, SiteService],
 })
 export class SitesModule {}
