@@ -23,6 +23,8 @@ import { WagonUpdateComponent } from './wagons/wagon-update/wagon-update.compone
 import { MatExpansionModule } from '@angular/material/expansion';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -49,6 +51,8 @@ import { AuthService } from './auth.service';
     MatCardModule,
     MatIconModule,
     MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],

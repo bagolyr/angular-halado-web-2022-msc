@@ -24,6 +24,10 @@ import { WagonCreateComponent } from '../wagons/wagon-create/wagon-create.compon
 import { WagonUpdateComponent } from '../wagons/wagon-update/wagon-update.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { WagonsRoutingModule } from './wagons-routing.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { SiteService } from '../site.service';
 
 @NgModule({
   imports: [
@@ -35,6 +39,7 @@ import { WagonsRoutingModule } from './wagons-routing.module';
     MatExpansionModule,
     //HttpClientModule,
     MatTableModule,
+    MatMenuModule,
     StoreModule,
     environment.isMockEnabled
       ? HttpClientInMemoryWebApiModule.forRoot(InMemoryEventService)
@@ -51,6 +56,8 @@ import { WagonsRoutingModule } from './wagons-routing.module';
     MatCardModule,
     MatIconModule,
     MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   declarations: [
     WagonsComponent,
@@ -59,6 +66,6 @@ import { WagonsRoutingModule } from './wagons-routing.module';
     WagonUpdateComponent,
   ],
   //bootstrap: [AppComponent],
-  providers: [InMemoryEventService, WagonService],
+  providers: [InMemoryEventService, WagonService, SiteService],
 })
 export class WagonModule {}

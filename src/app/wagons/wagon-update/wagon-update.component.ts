@@ -17,6 +17,7 @@ import {
 import { switchMap } from 'rxjs/operators';
 import { Wagon } from '../../data/wagons';
 import { WagonActionTypes } from '../store/wagons.actions';
+import { SiteService } from '../../site.service';
 
 @Component({
   selector: 'app-wagon-update',
@@ -29,13 +30,16 @@ export class WagonUpdateComponent implements OnInit {
   loadedWagon: Wagon;
   wagons$: Observable<any>;
   wagons;
+  sites$: Observable<any>;
+  sites;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     //private store: Store,
-    private wagonService: WagonService
+    private wagonService: WagonService,
+    private siteService: SiteService
   ) {}
 
   ngOnInit() {
@@ -46,6 +50,11 @@ export class WagonUpdateComponent implements OnInit {
     this.wagons$ = this.wagonService.getWagon(n);
     this.wagons$.subscribe((result) => {
       this.wagons = result;
+    });
+
+    this.sites$ = this.siteService.getSites();
+    this.sites$.subscribe((result) => {
+      this.sites = result;
     });
 
     this.wagonForm = this.formBuilder.group({

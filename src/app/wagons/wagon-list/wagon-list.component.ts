@@ -15,6 +15,7 @@ import {
 import { switchMap } from 'rxjs/operators';
 import { MatTable } from '@angular/material/table';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SiteService } from '../../site.service';
 
 export interface PeriodicElement {
   id: number;
@@ -50,12 +51,15 @@ export class WagonListComponent implements OnInit {
 
   constructor(
     private wagonService: WagonService,
+    private siteService: SiteService,
     private formBuilder: FormBuilder
   ) {}
 
   increasingID: number;
   wagons$: Observable<any>;
   wagons;
+  sites$: Observable<any>;
+  sites;
 
   InitForm() {
     this.wagonForm = this.formBuilder.group({
@@ -71,10 +75,17 @@ export class WagonListComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('Debug: WagonListComponent ngOnInit');
     this.wagons$ = this.wagonService.getWagons();
     this.wagons$.subscribe((result) => {
       this.wagons = result;
     });
+
+    this.sites$ = this.siteService.getSites();
+    this.sites$.subscribe((result) => {
+      this.sites = result;
+    });
+
     this.InitForm();
     this.increasingID = 4;
   }
