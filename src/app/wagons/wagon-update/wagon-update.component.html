@@ -86,12 +86,14 @@
   <div>
     <mat-form-field appearance="outline">
       <mat-label>{{ wagons.is_deleted }}</mat-label>
-      <input
+      <mat-select
         matInput
-        placeholder="{{ wagons.is_deleted }}"
         formControlName="is_deleted"
         [(ngModel)]="wagons.is_deleted"
-      />
+      >
+        <mat-option [value]="true">true</mat-option>
+        <mat-option [value]="false">false</mat-option>
+      </mat-select>
       <mat-hint>Is the wagon deleted?</mat-hint>
     </mat-form-field>
   </div>

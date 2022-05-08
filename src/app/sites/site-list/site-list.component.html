@@ -28,7 +28,10 @@
       <br />
       <mat-form-field appearance="fill">
         <mat-label>Is Deleted</mat-label>
-        <input matInput formControlName="is_deleted" />
+        <mat-select matInput formControlName="is_deleted">
+          <mat-option [value]="true">true</mat-option>
+          <mat-option [value]="false">false</mat-option>
+        </mat-select>
       </mat-form-field>
       <br />
       <mat-action-row>

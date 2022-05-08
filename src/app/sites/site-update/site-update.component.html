@@ -70,12 +70,10 @@
   <div>
     <mat-form-field appearance="outline">
       <mat-label>{{ sites.is_deleted }}</mat-label>
-      <input
-        matInput
-        placeholder="{{ sites.is_deleted }}"
-        formControlName="is_deleted"
-        [(ngModel)]="sites.is_deleted"
-      />
+      <mat-select matInput formControlName="is_deleted">
+        <mat-option [value]="true">true</mat-option>
+        <mat-option [value]="false">false</mat-option>
+      </mat-select>
       <mat-hint>Is the site deleted?</mat-hint>
     </mat-form-field>
   </div>

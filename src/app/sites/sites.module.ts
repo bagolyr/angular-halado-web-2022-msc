@@ -24,6 +24,9 @@ import { SiteService } from '../site.service';
 import { SiteUpdateComponent } from '../sites/site-update/site-update.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { SitesRoutingModule } from './sites-routing.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -51,6 +54,8 @@ import { SitesRoutingModule } from './sites-routing.module';
     MatCardModule,
     MatIconModule,
     MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   declarations: [
     SitesComponent,
