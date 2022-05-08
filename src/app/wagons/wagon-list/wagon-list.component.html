@@ -78,9 +78,7 @@
 
   <!-- Site name Column -->
   <ng-container matColumnDef="siteName">
-    <th mat-header-cell *matHeaderCellDef (click)="resetPerspective()">
-      Site Name
-    </th>
+    <th mat-header-cell *matHeaderCellDef>Site Name</th>
     <td mat-cell *matCellDef="let wagons">
       <p
         *ngIf="!wagons.is_deleted"
@@ -128,3 +126,15 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<p>
+  <button
+    aria-hidden="false"
+    (click)="resetPerspective()"
+    aria-label="Reset filters"
+    mat-raised-button
+    color="primary"
+  >
+    Reset filters
+  </button>
+</p>
