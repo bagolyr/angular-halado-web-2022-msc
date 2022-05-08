@@ -28,8 +28,7 @@
       <br />
       <mat-form-field appearance="fill">
         <mat-label>SiteID</mat-label>
-        <input matInput formControlName="siteID" />
-        <mat-select>
+        <mat-select matInput formControlName="siteID">
           <mat-option *ngFor="let site of sites" [value]="site.id">{{
             site.id
           }}</mat-option>
@@ -37,8 +36,7 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Site Name</mat-label>
-        <input matInput formControlName="siteName" />
-        <mat-select>
+        <mat-select matInput formControlName="siteName">
           <mat-option *ngFor="let site of sites" [value]="site.name">{{
             site.name
           }}</mat-option>

@@ -70,13 +70,12 @@
   <div>
     <mat-form-field appearance="outline">
       <mat-label>{{ wagons.siteID }}</mat-label>
-      <input
+      <mat-select
         matInput
         placeholder="{{ wagons.siteID }}"
         formControlName="siteID"
         [(ngModel)]="wagons.siteID"
-      />
-      <mat-select>
+      >
         <mat-option *ngFor="let site of sites" [value]="site.id">{{
           site.id
         }}</mat-option>
@@ -99,13 +98,12 @@
   <div>
     <mat-form-field appearance="outline">
       <mat-label>{{ wagons.siteName }}</mat-label>
-      <input
+      <mat-select
         matInput
         placeholder="{{ wagons.siteName }}"
         formControlName="siteName"
         [(ngModel)]="wagons.siteName"
-      />
-      <mat-select>
+      >
         <mat-option *ngFor="let site of sites" [value]="site.name">{{
           site.name
         }}</mat-option>
