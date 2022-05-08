@@ -1,5 +1,43 @@
 <h2>Site list</h2>
 
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Add data </mat-panel-title>
+      <mat-panel-description> Click to expand and hide</mat-panel-description>
+    </mat-expansion-panel-header>
+    <form [formGroup]="siteForm" (ngSubmit)="addFormData(siteForm.value)">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Owner</mat-label>
+        <input matInput formControlName="owner" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Code</mat-label>
+        <input matInput formControlName="code" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Is Deleted</mat-label>
+        <input matInput formControlName="is_deleted" />
+      </mat-form-field>
+      <br />
+      <mat-action-row>
+        <button mat-button color="primary">Save</button>
+      </mat-action-row>
+    </form>
+  </mat-expansion-panel>
+</mat-accordion>
+
 <table mat-table [dataSource]="sites" class="mat-elevation-z8 demo-table">
   <!-- Identifier Column -->
   <ng-container matColumnDef="name">

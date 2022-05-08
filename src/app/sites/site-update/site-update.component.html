@@ -1,3 +1,87 @@
+<h2>Site update</h2>
+
 <p>
-site-update works!
+  <a mat-button routerLink="/sites">
+    <b>Back to site list</b>
+  </a>
 </p>
+<form [formGroup]="siteForm" (ngSubmit)="onSubmit(siteForm.getRawValue())">
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ sites.id }}</mat-label>
+      <input
+        matInput
+        placeholder="{{ sites.id }}"
+        formControlName="id"
+        [(ngModel)]="sites.id"
+        readonly
+      />
+      <mat-hint>site's id</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ sites.name }}</mat-label>
+      <input
+        matInput
+        placeholder="{{ sites.name }}"
+        formControlName="name"
+        [(ngModel)]="sites.name"
+      />
+      <mat-hint>Give the site's name</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ sites.owner }}</mat-label>
+      <input
+        matInput
+        placeholder="{{ sites.owner }}"
+        formControlName="owner"
+        [(ngModel)]="sites.owner"
+      />
+      <mat-hint>Give the site's Owner</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ sites.address }}</mat-label>
+      <input
+        matInput
+        placeholder="{{ sites.address }}"
+        formControlName="address"
+        [(ngModel)]="sites.address"
+      />
+      <mat-hint>Give the site's address</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ sites.code }}</mat-label>
+      <input
+        matInput
+        placeholder="{{ sites.code }}"
+        formControlName="code"
+        [(ngModel)]="sites.code"
+      />
+      <mat-hint>Give the site's code</mat-hint>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ sites.is_deleted }}</mat-label>
+      <input
+        matInput
+        placeholder="{{ sites.is_deleted }}"
+        formControlName="is_deleted"
+        [(ngModel)]="sites.is_deleted"
+      />
+      <mat-hint>Is the site deleted?</mat-hint>
+    </mat-form-field>
+  </div>
+  <br />
+  <button mat-raised-button color="primary" type [disabled]="siteForm.invalid">
+    Update
+  </button>
+</form>
+<p>Form Status: {{ siteForm.status }}</p>

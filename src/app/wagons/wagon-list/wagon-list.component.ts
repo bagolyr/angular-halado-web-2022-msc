@@ -46,8 +46,6 @@ const ELEMENT_DATA: Wagon[] = [
   styleUrls: ['./wagon-list.component.css'],
 })
 export class WagonListComponent implements OnInit {
-  //public wagons = [];
-
   wagonForm: FormGroup;
 
   constructor(

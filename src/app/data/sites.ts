@@ -4,6 +4,7 @@ export interface Site {
   owner: string;
   address: string;
   code: string;
+  is_deleted: boolean;
 }
 
 export class SiteTable {
@@ -14,6 +15,7 @@ export class SiteTable {
       owner: 'SiteOwner1',
       address: 'Celldomolk',
       code: '02170',
+      is_deleted: false,
     },
     {
       id: 2,
@@ -21,6 +23,7 @@ export class SiteTable {
       owner: 'SiteOwner1',
       address: 'Szombathely',
       code: '02171',
+      is_deleted: false,
     },
   ];
 }

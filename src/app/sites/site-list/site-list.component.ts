@@ -27,27 +27,12 @@ export interface PeriodicElement {
   siteName?: string;
 }
 
-/*const ELEMENT_DATA: Wagon[] = [
-  {
-    id: 4,
-    identifier: 'Bhv',
-    date_of_production: 2020,
-    track_number: '50 55 20-05 555-7',
-    owner: 'WagonOwner1',
-    siteID: 1,
-    is_deleted: false,
-    siteName: 'Name1',
-  },
-];*/
-
 @Component({
   selector: 'app-site-list',
   templateUrl: './site-list.component.html',
   styleUrls: ['./site-list.component.css'],
 })
 export class SiteListComponent implements OnInit {
-  //public wagons = [];
-
   siteForm: FormGroup;
 
   constructor(
@@ -66,10 +51,12 @@ export class SiteListComponent implements OnInit {
       owner: '',
       address: '',
       code: '',
+      is_deleted: 'false',
     });
   }
 
   ngOnInit() {
+    console.log('Debug: SiteListComponent: ngOnInit');
     this.sites$ = this.siteService.getSites();
     this.sites$.subscribe((result) => {
       this.sites = result;
@@ -93,13 +80,6 @@ export class SiteListComponent implements OnInit {
       .subscribe((result) => (this.sites = result));
   }
 
-  /*displayedColumns: string[] = [
-    'identifier',
-    'track_number',
-    'siteName',
-    'edit',
-    'delete',
-  ];*/
   displayedColumns: string[] = [
     'name',
     'owner',
@@ -109,12 +89,6 @@ export class SiteListComponent implements OnInit {
     'delete',
   ];
   @ViewChild(MatTable) table: MatTable<PeriodicElement>;
-
-  /*addData() {
-    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.sites.push(ELEMENT_DATA[randomElementIndex]);
-    this.table.renderRows();
-  }*/
 
   addFormData(data: Site) {
     data.id = this.increasingID;
