@@ -169,17 +169,13 @@ export class WagonListComponent implements OnInit {
 
   /* Sort the content of the table */
 
-  //sortedData: Wagon[];
-
   sortData(sort: Sort) {
     const data = this.wagons.slice();
     if (!sort.active || sort.direction === '') {
-      //this.sortedData = data;
       this.wagons = data;
       return;
     }
 
-    //this.sortedData = data.sort((a, b) => {
     this.wagons = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
@@ -193,6 +189,28 @@ export class WagonListComponent implements OnInit {
           return 0;
       }
     });
+  }
+
+  /* Filter the content of the table */
+
+  text = '';
+  searchFunction(text) {
+    console.log('Debug: wagon-list searchFunction: ' + text);
+    console.log(
+      (this.wagons = this.wagons.filter((e) => {
+        return (
+          e.identifier.toLowerCase() === text.toLowerCase() ||
+          e.identifier.toLowerCase().indexOf(text.toLowerCase()) >= 0 ||
+          e.track_number.toLowerCase() === text.toLowerCase() ||
+          e.track_number.toLowerCase().indexOf(text.toLowerCase()) >= 0 ||
+          e.siteName.toLowerCase() === text.toLowerCase() ||
+          e.siteName.toLowerCase().indexOf(text.toLowerCase()) >= 0
+        );
+      }))
+    );
+    if (text === '') {
+      this.resetPerspective();
+    }
   }
 }
 
