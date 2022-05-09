@@ -161,6 +161,30 @@ export class SiteListComponent implements OnInit {
       }
     });
   }
+
+  /* Filter the content of the table */
+
+  text = '';
+  searchFunction(text) {
+    console.log('Debug: site-list searchFunction: ' + text);
+    console.log(
+      (this.sites = this.sites.filter((e) => {
+        return (
+          e.name.toLowerCase() === text.toLowerCase() ||
+          e.name.toLowerCase().indexOf(text.toLowerCase()) >= 0 ||
+          e.owner.toLowerCase() === text.toLowerCase() ||
+          e.owner.toLowerCase().indexOf(text.toLowerCase()) >= 0 ||
+          e.address.toLowerCase() === text.toLowerCase() ||
+          e.address.toLowerCase().indexOf(text.toLowerCase()) >= 0 ||
+          e.code.toLowerCase() === text.toLowerCase() ||
+          e.code.toLowerCase().indexOf(text.toLowerCase()) >= 0
+        );
+      }))
+    );
+    if (text === '') {
+      this.resetPerspective();
+    }
+  }
 }
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {

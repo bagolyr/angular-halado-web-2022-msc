@@ -55,3 +55,9 @@
 .hovered:hover {
   color: blue;
 }
+
+.right {
+  position: absolute;
+  right: 0px;
+  margin: 10px;
+}

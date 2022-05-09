@@ -123,8 +123,23 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-<p>
+<br />
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Filter table</mat-label>
+    <input
+      matInput
+      #message
+      maxlength="256"
+      type="search"
+      placeholder="Search"
+      [(ngModel)]="text"
+      (input)="searchFunction(text)"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </mat-form-field>
   <button
+    class="right"
     aria-hidden="false"
     (click)="resetPerspective()"
     aria-label="Reset filters"
@@ -133,4 +148,4 @@
   >
     Reset filters
   </button>
-</p>
+</form>
