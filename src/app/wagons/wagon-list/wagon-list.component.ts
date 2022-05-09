@@ -16,6 +16,7 @@ import { switchMap } from 'rxjs/operators';
 import { MatTable } from '@angular/material/table';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SiteService } from '../../site.service';
+import { Sort } from '@angular/material/sort';
 
 export interface PeriodicElement {
   id: number;
@@ -163,4 +164,34 @@ export class WagonListComponent implements OnInit {
   prevStep() {
     this.step--;
   }
+
+  sortedData: Wagon[];
+
+  sortData(sort: Sort) {
+    const data = this.wagons.slice();
+    if (!sort.active || sort.direction === '') {
+      //this.sortedData = data;
+      this.wagons = data;
+      return;
+    }
+
+    //this.sortedData = data.sort((a, b) => {
+    this.wagons = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'identifier':
+          return compare(a.identifier, b.identifier, isAsc);
+        case 'track_number':
+          return compare(a.track_number, b.track_number, isAsc);
+        case 'siteName':
+          return compare(a.siteName, b.siteName, isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
+}
+
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

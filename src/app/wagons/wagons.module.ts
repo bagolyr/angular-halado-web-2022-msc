@@ -28,6 +28,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { SiteService } from '../site.service';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { SiteService } from '../site.service';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatSortModule,
   ],
   declarations: [
     WagonsComponent,
