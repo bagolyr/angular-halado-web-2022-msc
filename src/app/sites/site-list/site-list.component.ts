@@ -15,6 +15,7 @@ import {
 import { switchMap } from 'rxjs/operators';
 import { MatTable } from '@angular/material/table';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Sort } from '@angular/material/sort';
 
 export interface PeriodicElement {
   id: number;
@@ -131,4 +132,37 @@ export class SiteListComponent implements OnInit {
   prevStep() {
     this.step--;
   }
+  /* Sort the content of the table */
+
+  //sortedData: Wagon[];
+
+  sortData(sort: Sort) {
+    const data = this.sites.slice();
+    if (!sort.active || sort.direction === '') {
+      //this.sortedData = data;
+      this.sites = data;
+      return;
+    }
+
+    //this.sortedData = data.sort((a, b) => {
+    this.sites = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'name':
+          return compare(a.name, b.name, isAsc);
+        case 'owner':
+          return compare(a.owner, b.owner, isAsc);
+        case 'address':
+          return compare(a.address, b.address, isAsc);
+        case 'code':
+          return compare(a.code, b.code, isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
+}
+
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

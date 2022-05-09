@@ -27,6 +27,7 @@ import { SitesRoutingModule } from './sites-routing.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   imports: [
@@ -56,6 +57,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatSortModule,
   ],
   declarations: [
     SitesComponent,

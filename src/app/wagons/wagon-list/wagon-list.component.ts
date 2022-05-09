@@ -151,6 +151,8 @@ export class WagonListComponent implements OnInit {
     this.table.renderRows();
   }
 
+  /* "Click to expand and hide" module */
+
   step = 0;
 
   setStep(index: number) {
@@ -165,7 +167,9 @@ export class WagonListComponent implements OnInit {
     this.step--;
   }
 
-  sortedData: Wagon[];
+  /* Sort the content of the table */
+
+  //sortedData: Wagon[];
 
   sortData(sort: Sort) {
     const data = this.wagons.slice();

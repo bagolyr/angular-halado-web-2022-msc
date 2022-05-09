@@ -41,10 +41,16 @@
   </mat-expansion-panel>
 </mat-accordion>
 
-<table mat-table [dataSource]="sites" class="mat-elevation-z8 demo-table">
+<table
+  mat-table
+  matSort
+  [dataSource]="sites"
+  class="mat-elevation-z8 demo-table"
+  (matSortChange)="sortData($event)"
+>
   <!-- Identifier Column -->
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
     <td mat-cell *matCellDef="let sites">
       <p *ngIf="!sites.is_deleted">{{ sites.name }}</p>
     </td>
@@ -52,7 +58,7 @@
 
   <!-- Track number Column -->
   <ng-container matColumnDef="owner">
-    <th mat-header-cell *matHeaderCellDef>Owner</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Owner</th>
     <td mat-cell *matCellDef="let sites">
       <p *ngIf="!sites.is_deleted">{{ sites.owner }}</p>
     </td>
@@ -60,9 +66,7 @@
 
   <!-- Site name Column -->
   <ng-container matColumnDef="address">
-    <th mat-header-cell *matHeaderCellDef (click)="resetPerspective()">
-      Address
-    </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
     <td
       mat-cell
       id=" {{ sites.siteID }}"
@@ -76,7 +80,7 @@
   </ng-container>
 
   <ng-container matColumnDef="code">
-    <th mat-header-cell *matHeaderCellDef>Code</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
     <td mat-cell *matCellDef="let sites">
       <p *ngIf="!sites.is_deleted">{{ sites.code }}</p>
     </td>
@@ -118,3 +122,15 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<p>
+  <button
+    aria-hidden="false"
+    (click)="resetPerspective()"
+    aria-label="Reset filters"
+    mat-raised-button
+    color="primary"
+  >
+    Reset filters
+  </button>
+</p>
