@@ -17,6 +17,7 @@ import { MatTable } from '@angular/material/table';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SiteService } from '../../site.service';
 import { Sort } from '@angular/material/sort';
+import { CustomPipe } from '../../custom-pipe';
 
 export interface PeriodicElement {
   id: number;

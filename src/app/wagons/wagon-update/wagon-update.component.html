@@ -45,10 +45,10 @@
   </div>
   <div>
     <mat-form-field appearance="outline">
-      <mat-label>{{ wagons.track_number }}</mat-label>
+      <mat-label>{{ wagons.track_number | custom }}</mat-label>
       <input
         matInput
-        placeholder="{{ wagons.track_number }}"
+        placeholder="{{ wagons.track_number | custom }}"
         formControlName="track_number"
         [(ngModel)]="wagons.track_number"
       />

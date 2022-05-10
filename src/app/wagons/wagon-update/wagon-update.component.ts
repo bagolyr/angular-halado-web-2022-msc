@@ -18,6 +18,7 @@ import { switchMap } from 'rxjs/operators';
 import { Wagon } from '../../data/wagons';
 import { WagonActionTypes } from '../store/wagons.actions';
 import { SiteService } from '../../site.service';
+import { CustomPipe } from '../../custom-pipe';
 
 @Component({
   selector: 'app-wagon-update',
