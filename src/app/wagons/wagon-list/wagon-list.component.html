@@ -10,20 +10,32 @@
       <mat-form-field appearance="fill">
         <mat-label>Identifier</mat-label>
         <input matInput formControlName="identifier" />
+        <mat-error *ngIf="identifier.invalid">{{
+          getIdentifierErrorMessage()
+        }}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Date of production</mat-label>
         <input matInput formControlName="date_of_production" type="date" />
+        <mat-error *ngIf="date_of_production.invalid">{{
+          getProdDateErrorMessage()
+        }}</mat-error>
       </mat-form-field>
       <br />
       <mat-form-field appearance="fill">
         <mat-label>Track number</mat-label>
         <input matInput formControlName="track_number" />
+        <mat-error *ngIf="track_number.invalid">{{
+          getTrackNumberErrorMessage()
+        }}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Owner</mat-label>
         <input matInput formControlName="owner" />
+        <mat-error *ngIf="owner.invalid">{{
+          getOwnerErrorMessage()
+        }}</mat-error>
       </mat-form-field>
       <br />
       <mat-form-field appearance="fill">
@@ -53,7 +65,10 @@
       <br />
 
       <mat-action-row>
-        <button mat-button color="primary">Save</button>
+        <button mat-button color="primary" type [disabled]="wagonForm.invalid">
+          Save
+        </button>
+        <p>Form Status: {{ wagonForm.status }}</p>
       </mat-action-row>
     </form>
   </mat-expansion-panel>
