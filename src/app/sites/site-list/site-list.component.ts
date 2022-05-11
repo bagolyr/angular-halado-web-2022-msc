@@ -14,7 +14,7 @@ import {
 } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 import { MatTable } from '@angular/material/table';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Sort } from '@angular/material/sort';
 
 export interface PeriodicElement {
@@ -48,10 +48,10 @@ export class SiteListComponent implements OnInit {
   InitForm() {
     this.siteForm = this.formBuilder.group({
       id: '',
-      name: '',
-      owner: '',
-      address: '',
-      code: '',
+      name: ['', [Validators.required, Validators.maxLength(50)]],
+      owner: ['', [Validators.required, Validators.maxLength(50)]],
+      address: ['', [Validators.required, Validators.maxLength(50)]],
+      code: ['', [Validators.required, Validators.maxLength(50)]],
       is_deleted: false,
     });
   }
@@ -184,6 +184,60 @@ export class SiteListComponent implements OnInit {
     if (text === '') {
       this.resetPerspective();
     }
+  }
+
+  /* validators */
+  get name() {
+    return this.siteForm.get('name');
+  }
+  get owner() {
+    return this.siteForm.get('owner');
+  }
+  get address() {
+    return this.siteForm.get('address');
+  }
+  get code() {
+    return this.siteForm.get('code');
+  }
+
+  getNameErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.name.dirty || this.name.touched) {
+      if (this.name.hasError('required')) return 'You must enter a value!';
+      if (this.name.hasError('maxlength'))
+        return 'You can enter at most 50 characters!';
+    }
+    return '';
+  }
+
+  getOwnerErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.owner.dirty || this.owner.touched) {
+      if (this.owner.hasError('required')) return 'You must enter a value!';
+      if (this.owner.hasError('maxlength'))
+        return 'You can enter at most 50 characters!';
+    }
+    return '';
+  }
+
+  getAddressErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.address.dirty || this.address.touched) {
+      if (this.address.hasError('required')) return 'You must enter a value!';
+      if (this.address.hasError('maxlength'))
+        return 'You can enter at most 50 characters!';
+    }
+    return '';
+  }
+
+  getCodeErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.code.dirty || this.code.touched) {
+      if (this.code.hasError('required')) return 'You must enter a value!';
+      if (this.code.hasError('maxlength'))
+        return 'You can enter at most 50 characters!';
+    }
+    return '';
   }
 }
 

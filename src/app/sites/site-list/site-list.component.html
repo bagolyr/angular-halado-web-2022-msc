@@ -10,20 +10,28 @@
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" />
+        <mat-error *ngIf="name.invalid">{{ getNameErrorMessage() }}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Owner</mat-label>
         <input matInput formControlName="owner" />
+        <mat-error *ngIf="owner.invalid">{{
+          getOwnerErrorMessage()
+        }}</mat-error>
       </mat-form-field>
       <br />
       <mat-form-field appearance="fill">
         <mat-label>Address</mat-label>
         <input matInput formControlName="address" />
+        <mat-error *ngIf="address.invalid">{{
+          getAddressErrorMessage()
+        }}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Code</mat-label>
         <input matInput formControlName="code" />
+        <mat-error *ngIf="code.invalid">{{ getCodeErrorMessage() }}</mat-error>
       </mat-form-field>
       <br />
       <mat-form-field appearance="fill">
@@ -35,7 +43,10 @@
       </mat-form-field>
       <br />
       <mat-action-row>
-        <button mat-button color="primary">Save</button>
+        <button mat-button color="primary" type [disabled]="siteForm.invalid">
+          Save
+        </button>
+        <p>Form Status: {{ siteForm.status }}</p>
       </mat-action-row>
     </form>
   </mat-expansion-panel>
