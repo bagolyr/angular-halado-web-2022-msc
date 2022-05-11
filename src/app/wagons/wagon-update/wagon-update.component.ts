@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WagonTable } from '../../data/wagons';
 import { WagonService } from '../../wagon.service';
@@ -60,13 +60,13 @@ export class WagonUpdateComponent implements OnInit {
 
     this.wagonForm = this.formBuilder.group({
       id: '',
-      identifier: '',
-      date_of_production: '',
-      track_number: '',
-      owner: '',
-      siteID: '',
+      identifier: ['', [Validators.required, Validators.maxLength(50)]],
+      date_of_production: ['', [Validators.required]],
+      track_number: ['', [Validators.required, Validators.maxLength(50)]],
+      owner: ['', [Validators.required, Validators.maxLength(50)]],
+      siteID: ['', [Validators.required]],
       is_deleted: '',
-      siteName: '',
+      siteName: ['', [Validators.required]],
     });
   }
 
@@ -79,5 +79,82 @@ export class WagonUpdateComponent implements OnInit {
     });
     alert('Update successful!');
     this.router.navigate(['/wagons']);
+  }
+
+  /* validators */
+  get identifier() {
+    return this.wagonForm.get('identifier');
+  }
+  get owner() {
+    return this.wagonForm.get('owner');
+  }
+  get track_number() {
+    return this.wagonForm.get('track_number');
+  }
+  get date_of_production() {
+    return this.wagonForm.get('date_of_production');
+  }
+  get siteId() {
+    return this.siteId.get('siteId');
+  }
+  get siteName() {
+    return this.siteName.get('siteName');
+  }
+
+  getIdentifierErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.identifier.dirty || this.identifier.touched) {
+      if (this.identifier.hasError('required'))
+        return 'You must enter a value!';
+      if (this.identifier.hasError('maxlength'))
+        return 'You can enter at most 50 characters!';
+    }
+    return '';
+  }
+
+  getOwnerErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.owner.dirty || this.owner.touched) {
+      if (this.owner.hasError('required')) return 'You must enter a value!';
+      if (this.owner.hasError('maxlength'))
+        return 'You can enter at most 50 characters!';
+    }
+    return '';
+  }
+
+  getTrackNumberErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.track_number.dirty || this.track_number.touched) {
+      if (this.track_number.hasError('required'))
+        return 'You must enter a value!';
+      if (this.track_number.hasError('maxlength'))
+        return 'You can enter at most 50 characters!';
+    }
+    return '';
+  }
+
+  getProdDateErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.date_of_production.dirty || this.date_of_production.touched) {
+      if (this.date_of_production.hasError('required'))
+        return 'You must enter a value!';
+    }
+    return '';
+  }
+
+  getSiteIDErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.siteId.dirty || this.siteId.touched) {
+      if (this.siteId.hasError('required')) return 'You must enter a value!';
+    }
+    return '';
+  }
+
+  getSiteNameErrorMessage() {
+    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    if (this.siteName.dirty || this.siteName.touched) {
+      if (this.siteName.hasError('required')) return 'You must enter a value!';
+    }
+    return '';
   }
 }

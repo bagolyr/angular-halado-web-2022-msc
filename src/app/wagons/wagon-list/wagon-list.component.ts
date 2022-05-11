@@ -14,11 +14,10 @@ import {
 } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 import { MatTable } from '@angular/material/table';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SiteService } from '../../site.service';
 import { Sort } from '@angular/material/sort';
 import { CustomPipe } from '../../custom-pipe';
-import { Validators } from '@angular/forms';
 
 export interface PeriodicElement {
   id: number;

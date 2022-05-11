@@ -29,6 +29,9 @@
         [(ngModel)]="wagons.identifier"
       />
       <mat-hint>Give the Wagon's identifier</mat-hint>
+      <mat-error *ngIf="identifier.invalid">{{
+        getIdentifierErrorMessage()
+      }}</mat-error>
     </mat-form-field>
   </div>
   <div>
@@ -40,6 +43,9 @@
         formControlName="date_of_production"
         [(ngModel)]="wagons.date_of_production"
       />
+      <mat-error *ngIf="date_of_production.invalid">{{
+        getProdDateErrorMessage()
+      }}</mat-error>
       <mat-hint>Give the Wagon's production date</mat-hint>
     </mat-form-field>
   </div>
@@ -52,6 +58,9 @@
         formControlName="track_number"
         [(ngModel)]="wagons.track_number"
       />
+      <mat-error *ngIf="track_number.invalid">{{
+        getTrackNumberErrorMessage()
+      }}</mat-error>
       <mat-hint>Give the Wagon's track number</mat-hint>
     </mat-form-field>
   </div>
@@ -64,6 +73,7 @@
         formControlName="owner"
         [(ngModel)]="wagons.owner"
       />
+      <mat-error *ngIf="owner.invalid">{{ getOwnerErrorMessage() }}</mat-error>
       <mat-hint>Give the Wagon's owner</mat-hint>
     </mat-form-field>
   </div>
