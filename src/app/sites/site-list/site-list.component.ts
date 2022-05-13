@@ -119,6 +119,8 @@ export class SiteListComponent implements OnInit {
     this.table.renderRows();
   }
 
+  /* "Click to expand and hide" module */
+
   step = 0;
 
   setStep(index: number) {
@@ -132,19 +134,16 @@ export class SiteListComponent implements OnInit {
   prevStep() {
     this.step--;
   }
-  /* Sort the content of the table */
 
-  //sortedData: Wagon[];
+  /* Sort the content of the table */
 
   sortData(sort: Sort) {
     const data = this.sites.slice();
     if (!sort.active || sort.direction === '') {
-      //this.sortedData = data;
       this.sites = data;
       return;
     }
 
-    //this.sortedData = data.sort((a, b) => {
     this.sites = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
@@ -201,7 +200,7 @@ export class SiteListComponent implements OnInit {
   }
 
   getNameErrorMessage() {
-    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    //console.log('Debug wagon-list getNameErrorMessage called');
     if (this.name.dirty || this.name.touched) {
       if (this.name.hasError('required')) return 'You must enter a value!';
       if (this.name.hasError('maxlength'))
@@ -211,7 +210,7 @@ export class SiteListComponent implements OnInit {
   }
 
   getOwnerErrorMessage() {
-    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    //console.log('Debug wagon-list getOwnerErrorMessage called');
     if (this.owner.dirty || this.owner.touched) {
       if (this.owner.hasError('required')) return 'You must enter a value!';
       if (this.owner.hasError('maxlength'))
@@ -221,7 +220,7 @@ export class SiteListComponent implements OnInit {
   }
 
   getAddressErrorMessage() {
-    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    //console.log('Debug wagon-list getAddressErrorMessage called');
     if (this.address.dirty || this.address.touched) {
       if (this.address.hasError('required')) return 'You must enter a value!';
       if (this.address.hasError('maxlength'))
@@ -231,7 +230,7 @@ export class SiteListComponent implements OnInit {
   }
 
   getCodeErrorMessage() {
-    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    //console.log('Debug wagon-list getCodeErrorMessage called');
     if (this.code.dirty || this.code.touched) {
       if (this.code.hasError('required')) return 'You must enter a value!';
       if (this.code.hasError('maxlength'))

@@ -38,7 +38,6 @@ export class WagonUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    //private store: Store,
     private wagonService: WagonService,
     private siteService: SiteService
   ) {}
@@ -113,7 +112,7 @@ export class WagonUpdateComponent implements OnInit {
   }
 
   getOwnerErrorMessage() {
-    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    //console.log('Debug wagon-list getOwnerErrorMessage called');
     if (this.owner.dirty || this.owner.touched) {
       if (this.owner.hasError('required')) return 'You must enter a value!';
       if (this.owner.hasError('maxlength'))
@@ -123,7 +122,7 @@ export class WagonUpdateComponent implements OnInit {
   }
 
   getTrackNumberErrorMessage() {
-    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    //console.log('Debug wagon-list getTrackNumberErrorMessage called');
     if (this.track_number.dirty || this.track_number.touched) {
       if (this.track_number.hasError('required'))
         return 'You must enter a value!';
@@ -134,7 +133,7 @@ export class WagonUpdateComponent implements OnInit {
   }
 
   getProdDateErrorMessage() {
-    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    //console.log('Debug wagon-list getProdDateErrorMessage called');
     if (this.date_of_production.dirty || this.date_of_production.touched) {
       if (this.date_of_production.hasError('required'))
         return 'You must enter a value!';
@@ -143,7 +142,7 @@ export class WagonUpdateComponent implements OnInit {
   }
 
   getSiteIDErrorMessage() {
-    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    //console.log('Debug wagon-list getSiteIDErrorMessage called');
     if (this.siteId.dirty || this.siteId.touched) {
       if (this.siteId.hasError('required')) return 'You must enter a value!';
     }
@@ -151,7 +150,7 @@ export class WagonUpdateComponent implements OnInit {
   }
 
   getSiteNameErrorMessage() {
-    //console.log('Debug wagon-list getIdentifierErrorMessage called');
+    //console.log('Debug wagon-list getSiteNameErrorMessage called');
     if (this.siteName.dirty || this.siteName.touched) {
       if (this.siteName.hasError('required')) return 'You must enter a value!';
     }

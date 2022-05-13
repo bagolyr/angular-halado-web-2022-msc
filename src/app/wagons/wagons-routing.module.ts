@@ -3,9 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { WagonListComponent } from './wagon-list/wagon-list.component';
 import { WagonsComponent } from './wagons/wagons.component';
-//import { EventSocialComponent } from './event-social/event-social.component';
-//import { EventDetailsComponent } from './event-details/event-details.component';
-//import { EventCreateComponent } from './event-create/event-create.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { WagonUpdateComponent } from '../wagons/wagon-update/wagon-update.component';
 

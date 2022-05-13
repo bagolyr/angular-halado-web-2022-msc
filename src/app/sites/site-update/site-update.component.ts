@@ -32,7 +32,6 @@ export class SiteUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    //private store: Store,
     private siteservice: SiteService
   ) {}
 

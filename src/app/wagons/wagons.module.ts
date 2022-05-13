@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
-//import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -12,7 +9,6 @@ import { MatInputModule } from '@angular/material/input';
 import { StoreModule } from '@ngrx/store';
 import { MatTableModule } from '@angular/material/table';
 
-//import { AppComponent } from '../app.component';
 import { HelloComponent } from '../hello.component';
 import { InMemoryEventService } from '../in-memory-event.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -33,13 +29,10 @@ import { CustomPipe } from '../custom-pipe';
 
 @NgModule({
   imports: [
-    //BrowserModule,
     CommonModule,
-    //BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MatExpansionModule,
-    //HttpClientModule,
     MatTableModule,
     MatMenuModule,
     StoreModule,
@@ -47,13 +40,6 @@ import { CustomPipe } from '../custom-pipe';
       ? HttpClientInMemoryWebApiModule.forRoot(InMemoryEventService)
       : [],
     WagonsRoutingModule,
-    /*RouterModule.forRoot([
-      { path: '', component: WagonListComponent },
-      { path: 'wagons', component: WagonListComponent },
-      { path: 'create', component: WagonCreateComponent },
-      { path: 'edit', component: WagonUpdateComponent },
-      { path: 'edit/:wagonId', component: WagonUpdateComponent },
-    ]),*/
     MatButtonModule,
     MatCardModule,
     MatIconModule,
@@ -69,7 +55,6 @@ import { CustomPipe } from '../custom-pipe';
     WagonUpdateComponent,
     CustomPipe,
   ],
-  //bootstrap: [AppComponent],
   providers: [InMemoryEventService, WagonService, SiteService],
 })
 export class WagonModule {}
