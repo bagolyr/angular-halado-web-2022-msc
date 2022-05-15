@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { Site, SiteTable } from '../../data/sites';
 import { SiteService } from '../../site.service';
 import { WagonService } from '../../wagon.service';
@@ -17,6 +17,7 @@ import { switchMap } from 'rxjs/operators';
 import { MatTable } from '@angular/material/table';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Sort } from '@angular/material/sort';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface PeriodicElement {
   id: number;
@@ -27,6 +28,10 @@ export interface PeriodicElement {
   siteID: number;
   is_deleted: boolean;
   siteName?: string;
+}
+
+export interface DialogData {
+  filtered_wagons: any;
 }
 
 @Component({
@@ -40,7 +45,8 @@ export class SiteListComponent implements OnInit {
   constructor(
     private siteService: SiteService,
     private wagonService: WagonService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog
   ) {}
 
   increasingID: number;
@@ -80,6 +86,10 @@ export class SiteListComponent implements OnInit {
     this.sites$.subscribe((result) => {
       this.sites = result;
     });
+    this.wagons$ = this.wagonService.getWagons();
+    this.wagons$.subscribe((result) => {
+      this.wagons = result;
+    });
     this.InitForm();
   }
 
@@ -118,9 +128,13 @@ export class SiteListComponent implements OnInit {
     console.log(
       this.wagons.filter((wagon) => wagon.siteID === Number(event.target.id))
     );
-    this.sites = this.sites.filter(
-      (sites) => sites.siteID === Number(event.target.id)
+    this.wagons = this.wagons.filter(
+      (wagons) => wagons.siteID === Number(event.target.id)
     );
+
+    const dialogRef = this.dialog.open(DialogDataExampleDialog, {
+      data: { filtered_wagons: JSON.stringify(this.wagons, ['identifier']) },
+    });
   }
 
   removeData() {
@@ -251,4 +265,14 @@ export class SiteListComponent implements OnInit {
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+
+@Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: 'site-list-dialog.html',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    console.log('DialogDataExampleDialog: ' + data.filtered_wagons);
+  }
 }
