@@ -104,7 +104,7 @@ export class SiteListComponent implements OnInit {
 
   onClickFilterWagonsBySiteId(event: any) {
     console.log(
-      'wagon-list component: onClick(Selected siteID): ' + event.target.id
+      'site-list component: onClick(Selected siteID): ' + event.target.id
     );
     console.log(
       this.sites.filter((wagon) => wagon.siteID === Number(event.target.id))

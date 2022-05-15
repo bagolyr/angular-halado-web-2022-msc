@@ -86,9 +86,11 @@
         formControlName="siteID"
         [(ngModel)]="wagons.siteID"
       >
-        <mat-option *ngFor="let site of sites" [value]="site.id">{{
-          site.id
-        }}</mat-option>
+        <ng-container *ngFor="let site of sites">
+          <mat-option *ngIf="site.is_deleted === false" [value]="site.id">{{
+            site.id
+          }}</mat-option>
+        </ng-container>
       </mat-select>
       <mat-hint>Give the Wagon's siteID</mat-hint>
     </mat-form-field>
@@ -116,9 +118,11 @@
         formControlName="siteName"
         [(ngModel)]="wagons.siteName"
       >
-        <mat-option *ngFor="let site of sites" [value]="site.name">{{
-          site.name
-        }}</mat-option>
+        <ng-container *ngFor="let site of sites">
+          <mat-option *ngIf="site.is_deleted === false" [value]="site.name">{{
+            site.name
+          }}</mat-option>
+        </ng-container>
       </mat-select>
       <mat-hint>Wagon's site name</mat-hint>
     </mat-form-field>

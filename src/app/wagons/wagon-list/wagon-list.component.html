@@ -41,17 +41,21 @@
       <mat-form-field appearance="fill">
         <mat-label>SiteID</mat-label>
         <mat-select matInput formControlName="siteID">
-          <mat-option *ngFor="let site of sites" [value]="site.id">{{
-            site.id
-          }}</mat-option>
+          <ng-container *ngFor="let site of sites">
+            <mat-option *ngIf="site.is_deleted === false" [value]="site.id">{{
+              site.id
+            }}</mat-option>
+          </ng-container>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Site Name</mat-label>
         <mat-select matInput formControlName="siteName">
-          <mat-option *ngFor="let site of sites" [value]="site.name">{{
-            site.name
-          }}</mat-option>
+          <ng-container *ngFor="let site of sites">
+            <mat-option *ngIf="site.is_deleted === false" [value]="site.name">{{
+              site.name
+            }}</mat-option>
+          </ng-container>
         </mat-select>
       </mat-form-field>
       <br />
