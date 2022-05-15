@@ -24,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { WagonService } from '../wagon.service';
 
 @NgModule({
   imports: [
@@ -47,6 +48,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatCheckboxModule,
   ],
   declarations: [SitesComponent, SiteListComponent, SiteUpdateComponent],
-  providers: [InMemoryEventService, SiteService],
+  providers: [InMemoryEventService, SiteService, WagonService],
 })
 export class SitesModule {}

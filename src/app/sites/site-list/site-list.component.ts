@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Site, SiteTable } from '../../data/sites';
 import { SiteService } from '../../site.service';
+import { WagonService } from '../../wagon.service';
 import { Observable, Observer, fromEvent, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import {
@@ -38,12 +39,15 @@ export class SiteListComponent implements OnInit {
 
   constructor(
     private siteService: SiteService,
+    private wagonService: WagonService,
     private formBuilder: FormBuilder
   ) {}
 
   increasingID: number;
   sites$: Observable<any>;
   sites;
+  wagons$: Observable<any>;
+  wagons;
   show_deleted = false;
 
   InitForm() {
@@ -62,6 +66,10 @@ export class SiteListComponent implements OnInit {
     this.sites$ = this.siteService.getSites();
     this.sites$.subscribe((result) => {
       this.sites = result;
+    });
+    this.wagons$ = this.wagonService.getWagons();
+    this.wagons$.subscribe((result) => {
+      this.wagons = result;
     });
     this.InitForm();
     this.increasingID = 4;
@@ -108,7 +116,7 @@ export class SiteListComponent implements OnInit {
       'site-list component: onClick(Selected siteID): ' + event.target.id
     );
     console.log(
-      this.sites.filter((wagon) => wagon.siteID === Number(event.target.id))
+      this.wagons.filter((wagon) => wagon.siteID === Number(event.target.id))
     );
     this.sites = this.sites.filter(
       (sites) => sites.siteID === Number(event.target.id)
