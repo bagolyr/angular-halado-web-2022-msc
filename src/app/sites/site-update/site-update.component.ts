@@ -52,7 +52,7 @@ export class SiteUpdateComponent implements OnInit {
       owner: '',
       address: '',
       code: '',
-      is_deleted: false,
+      is_deleted: '',
     });
   }
 

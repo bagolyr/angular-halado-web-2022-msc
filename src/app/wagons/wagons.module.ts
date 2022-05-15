@@ -26,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { SiteService } from '../site.service';
 import { MatSortModule } from '@angular/material/sort';
 import { CustomPipe } from '../custom-pipe';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { CustomPipe } from '../custom-pipe';
     MatFormFieldModule,
     MatSelectModule,
     MatSortModule,
+    MatCheckboxModule,
   ],
   declarations: [
     WagonsComponent,

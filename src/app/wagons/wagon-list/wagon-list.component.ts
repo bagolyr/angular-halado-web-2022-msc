@@ -62,6 +62,7 @@ export class WagonListComponent implements OnInit {
   wagons;
   sites$: Observable<any>;
   sites;
+  show_deleted = false;
 
   InitForm() {
     this.wagonForm = this.formBuilder.group({

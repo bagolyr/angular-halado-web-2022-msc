@@ -44,6 +44,7 @@ export class SiteListComponent implements OnInit {
   increasingID: number;
   sites$: Observable<any>;
   sites;
+  show_deleted = false;
 
   InitForm() {
     this.siteForm = this.formBuilder.group({
