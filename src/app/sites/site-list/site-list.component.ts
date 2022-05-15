@@ -135,6 +135,14 @@ export class SiteListComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogDataExampleDialog, {
       data: { filtered_wagons: JSON.stringify(this.wagons, ['identifier']) },
     });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog closed.`);
+      this.wagons$ = this.wagonService.getWagons();
+      this.wagons$.subscribe((result) => {
+        this.wagons = result;
+      });
+    });
   }
 
   removeData() {
