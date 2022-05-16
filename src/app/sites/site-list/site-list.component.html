@@ -132,6 +132,8 @@
           (click)="onDeleteSite(sites.id)"
           mat-raised-button
           color="warn"
+          type
+          [disabled]="!isSiteEmpty(sites.id)"
         >
           Delete
         </button>

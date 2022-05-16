@@ -100,6 +100,14 @@ export class SiteListComponent implements OnInit {
       .subscribe((result) => (this.sites = result));
   }
 
+  isSiteEmpty(eventId: number): boolean {
+    //console.log('isSiteEmpty: ' + eventId);
+    //console.log(
+    //  this.wagons.filter((wagons) => wagons.siteID === eventId)[0] == null
+    //);
+    return this.wagons.filter((wagons) => wagons.siteID === eventId)[0] == null;
+  }
+
   displayedColumns: string[] = [
     'name',
     'owner',
