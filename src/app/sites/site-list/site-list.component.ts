@@ -138,12 +138,18 @@ export class SiteListComponent implements OnInit {
     console.log(
       this.wagons.filter((wagon) => wagon.siteID === Number(event.target.id))
     );
-    this.wagons = this.wagons.filter(
-      (wagons) => wagons.siteID === Number(event.target.id)
-    );
 
     const dialogRef = this.dialog.open(DialogDataExampleDialog, {
-      data: { filtered_wagons: JSON.stringify(this.wagons, ['identifier']) },
+      width: '550px',
+      height: '300px',
+      data: {
+        filtered_wagons: JSON.stringify(
+          this.wagons.filter(
+            (wagons) => wagons.siteID === Number(event.target.id)
+          ),
+          ['identifier']
+        ),
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
