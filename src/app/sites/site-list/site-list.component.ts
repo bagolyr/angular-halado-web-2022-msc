@@ -67,29 +67,31 @@ export class SiteListComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    console.log('Debug: SiteListComponent: ngOnInit');
+  initializeSites() {
     this.sites$ = this.siteService.getSites();
     this.sites$.subscribe((result) => {
       this.sites = result;
     });
+  }
+
+  initializeWagons() {
     this.wagons$ = this.wagonService.getWagons();
     this.wagons$.subscribe((result) => {
       this.wagons = result;
     });
+  }
+
+  ngOnInit() {
+    console.log('Debug: SiteListComponent: ngOnInit');
+    this.initializeSites();
+    this.initializeWagons();
     this.InitForm();
     this.increasingID = 4;
   }
 
   resetPerspective() {
-    this.sites$ = this.siteService.getSites();
-    this.sites$.subscribe((result) => {
-      this.sites = result;
-    });
-    this.wagons$ = this.wagonService.getWagons();
-    this.wagons$.subscribe((result) => {
-      this.wagons = result;
-    });
+    this.initializeSites();
+    this.initializeWagons();
     this.InitForm();
   }
 
@@ -146,10 +148,7 @@ export class SiteListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog closed.`);
-      this.wagons$ = this.wagonService.getWagons();
-      this.wagons$.subscribe((result) => {
-        this.wagons = result;
-      });
+      this.initializeWagons();
     });
   }
 
