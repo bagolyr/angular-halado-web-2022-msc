@@ -55,6 +55,7 @@ export class SiteListComponent implements OnInit {
   wagons$: Observable<any>;
   wagons;
   show_deleted = false;
+  tmp: Site;
 
   InitForm() {
     this.siteForm = this.formBuilder.group({
@@ -87,6 +88,7 @@ export class SiteListComponent implements OnInit {
     this.initializeWagons();
     this.InitForm();
     this.increasingID = 4;
+    console.log('Debug: SiteListComponent: ngOnInit finished.');
   }
 
   resetPerspective() {
@@ -116,6 +118,8 @@ export class SiteListComponent implements OnInit {
     'address',
     'code',
     'edit',
+    'show_wagons',
+    'restore_site',
     'delete',
   ];
   @ViewChild(MatTable) table: MatTable<PeriodicElement>;
@@ -133,7 +137,8 @@ export class SiteListComponent implements OnInit {
 
   onClickFilterWagonsBySiteId(event: any) {
     console.log(
-      'site-list component: onClick(Selected siteID): ' + event.target.id
+      'site-list component: onClickFilterWagonsBySiteId(Selected siteID): ' +
+        event.target.id
     );
     console.log(
       this.wagons.filter((wagon) => wagon.siteID === Number(event.target.id))
@@ -156,6 +161,24 @@ export class SiteListComponent implements OnInit {
       console.log(`Dialog closed.`);
       this.initializeWagons();
     });
+  }
+
+  onClickRestoreWagonsBySiteId(event: any) {
+    console.log(
+      'site-list component: onClickRestoreWagonsBySiteId(Selected siteID): ' +
+        event.target.id
+    );
+    this.tmp = this.sites.filter(
+      (site) => site.id === Number(event.target.id)
+    )[0];
+    this.tmp.is_deleted = false;
+    console.log(this.tmp);
+
+    this.sites$ = this.siteService.updateSite(this.tmp);
+    this.sites$.subscribe((result) => {
+      this.sites = result;
+    });
+    this.resetPerspective();
   }
 
   removeData() {

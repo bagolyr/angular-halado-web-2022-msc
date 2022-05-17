@@ -77,27 +77,30 @@ export class WagonListComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    console.log('Debug: WagonListComponent ngOnInit');
+  initializeWagons() {
     this.wagons$ = this.wagonService.getWagons();
     this.wagons$.subscribe((result) => {
       this.wagons = result;
     });
+  }
 
+  initializeSites() {
     this.sites$ = this.siteService.getSites();
     this.sites$.subscribe((result) => {
       this.sites = result;
     });
+  }
 
+  ngOnInit() {
+    console.log('Debug: WagonListComponent ngOnInit');
+    this.initializeWagons();
+    this.initializeSites();
     this.InitForm();
     this.increasingID = 4;
   }
 
   resetPerspective() {
-    this.wagons$ = this.wagonService.getWagons();
-    this.wagons$.subscribe((result) => {
-      this.wagons = result;
-    });
+    this.initializeWagons();
     this.InitForm();
   }
 

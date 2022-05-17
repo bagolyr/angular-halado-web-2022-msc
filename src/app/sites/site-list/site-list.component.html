@@ -122,6 +122,35 @@
     </td>
   </ng-container>
 
+  <!-- Site name Column -->
+  <ng-container matColumnDef="show_wagons">
+    <th mat-header-cell *matHeaderCellDef>Show Wagons</th>
+    <td mat-cell *matCellDef="let sites">
+      <button
+        *ngIf="!sites.is_deleted || show_deleted"
+        id=" {{ sites.id }}"
+        (click)="onClickFilterWagonsBySiteId($event)"
+      >
+        Show Wagons
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Site name Column -->
+  <ng-container matColumnDef="restore_site">
+    <th mat-header-cell *matHeaderCellDef>Restore Site</th>
+    <td mat-cell *matCellDef="let sites">
+      <button
+        *ngIf="!sites.is_deleted || show_deleted"
+        id=" {{ sites.id }}"
+        (click)="onClickRestoreWagonsBySiteId($event)"
+        [disabled]="!sites.is_deleted"
+      >
+        Restore Site
+      </button>
+    </td>
+  </ng-container>
+
   <!-- Delete Column -->
   <ng-container matColumnDef="delete">
     <th mat-header-cell *matHeaderCellDef>Delete</th>
